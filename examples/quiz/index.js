@@ -9,6 +9,11 @@ const quizData = [
       options: ["Jupiter", "Saturn", "Mars", "Earth"],
       answer: "Jupiter"
     },
+    {
+      question: "What is the Powerhouse of the Cell",
+      options: ["Mitocondria", "Nuclear", "Power Plant", "Your Mother"],
+      answer: "Mitocondria",
+    },
     // Add more questions here...
   ];
   
