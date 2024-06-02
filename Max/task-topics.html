@@ -7,14 +7,16 @@
 	<script src="index.js"></script>
 	<title>StudentHub - The Black Death</title>
 	<link rel="icon" type="image/x-icon" href="Images/LowRes Favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
-<body onload="LoadTasks()">
+<body onload="LoadTasksTopics()">
 	<div class="partialsidebar sidebaranimate" style="display: none; right: 0" id="SidebarPartial">
 		<button onclick="CloseSidebarPartial()"><i class="fa fa-close"></i></button><br>
-	  <h1>John Doe</h1><br>
+	  <h1 id="Name">John Doe</h1><br>
 		<t style="fontsize:16px">Year 7 Student</t><br><br><br><br>
 	  <a><h3>Terms of Service</h3><br></a>
 	  <a><h3>Privacy Policy</h3><br></a>
+		<a onclick="NameChange()"><h3>Change Name</h3><br></a>
 		<a href="https://www.google.com/?safe=active&ssui=on"><h3 style="color: firebrick">Leave Site</h3></a>
 	</div>
 	<div class="fullsidebar sidebaranimate" style="display:none" id="SidebarFull">
@@ -24,10 +26,10 @@
 		<div class="navbar">
 			<div class="main-container">
 				<div class="fixer-container">
-					<li><img src="Images/StudentHub Logo LowRes.png" width="100" style="padding: 10px;border-radius:16px; float:left" height="85"><button onclick="OpenSidebarFull()"><img src="Images/Round Profile Pic Example.png" width="85" height="85" style="padding:10px;float:right" id="BackupProPic"></button></li><br><br><br><br><br><br>
+					<li><img src="Images/StudentHub Logo LowRes.png" width="100" style="padding: 10px;border-radius:16px; float:left" height="85"><button onclick="OpenSidebarFull()"><img src="Images/NormalProfilePic.png" width="85" height="85" style="padding:10px;float:right" id="BackupProPic"></button></li><br><br><br><br><br><br>
 					<li><a href="homepage.html">Home</a></li>
 				  <li><a id="active">Tasks</a></li>
-				  <li style="float:right"><button onclick="OpenSidebarPartial()"><img src="Images/Round Profile Pic Example.png" width="85" height="85" style="padding:10px;float:right" id="MainProPic"></button></li>
+				  <li style="float:right"><button onclick="OpenSidebarPartial()"><img src="Images/NormalProfilePic.png" width="85" height="85" style="padding:10px;float:right" id="MainProPic"></button></li>
 					<li><a href="info.html">Info</a></li>
 					<li><a href="record.html">Record</a></li>
 				</div>
@@ -43,6 +45,7 @@
 					<table id="TheInfo">
 						<tr><td><h2 id="TaskTitle"></h2></td></tr><br><br>
 						<tr><td><img src="#" height="500" class="rounded" id="TaskImage"></td></tr><br><br>
+						<tr><td><br></td></tr>
 						<tr><td><t id="TaskText"></t></td></tr>
 						<tr><td><a href="quiz.html"><div class="tasks-beginquiz"><h3>Begin Quiz</h3></div></a></td></tr>
 					</table>
@@ -52,52 +55,7 @@
 						<img class="center bottom" id="SubjectImage">
 						<div class="center bottom"><h2 id="SubjectName">The Black Death</h2></div>
 					</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-					<div class="tasks-topicscroll">
-						<div class="tasks-topic" id="Topic1" onclick="ResetTopic('TheBlackDeath', '1', 'Task')">
-							<h2>Jobs</h2>
-						</div>
-						<div class="tasks-topic" id="Topic2" onclick="ResetTopic('TheBlackDeath', '2', 'Task')">
-							<h2>Doctors</h2>
-						</div>
-						<div class="tasks-topic" id="Topic3" onclick="ResetTopic('TheBlackDeath', '3', 'Task')">
-							<h2>Religion</h2>
-						</div>
-						<div class="tasks-topic" id="Topic4" onclick="ResetTopic('TheBlackDeath', '4', 'Task')">
-							<h2>Causes</h2>
-						</div>
-						<div class="tasks-topic" id="Topic5" onclick="ResetTopic('TheBlackDeath', '5', 'Task')">
-							<h2>Trade</h2>
-						</div>
-						<div class="tasks-topic" id="Topic6" onclick="ResetTopic('TheBlackDeath', '6', 'Task')">
-							<h2>Symptoms</h2>
-						</div>
-						<div class="tasks-topic" id="Topic7" onclick="ResetTopic('TheBlackDeath', '7', 'Task')">
-							<h2>Treatment</h2>
-						</div>
-						<div class="tasks-topic" id="Topic8" onclick="ResetTopic('TheBlackDeath', '8', 'Task')">
-							<h2>Spreading</h2>
-						</div>
-						<div class="tasks-topic" id="Topic9" onclick="ResetTopic('TheBlackDeath', '9', 'Task')">
-							<h2>Responses</h2>
-						</div>
-						<div class="tasks-topic" id="Topic10" onclick="ResetTopic('TheBlackDeath', '10', 'Task')">
-							<h2>Asia</h2>
-						</div>
-						<div class="tasks-topic" id="Topic11" onclick="ResetTopic('TheBlackDeath', '11', 'Task')">
-							<h2>Africa</h2>
-						</div>
-						<div class="tasks-topic" id="Topic12" onclick="ResetTopic('TheBlackDeath', '12', 'Task')">
-							<h2>Europe</h2>
-						</div>
-						<div class="tasks-topic" id="Topic13" onclick="ResetTopic('TheBlackDeath', '13', 'Task')">
-							<h2>Short-Term</h2>
-						</div>
-						<div class="tasks-topic" id="Topic14" onclick="ResetTopic('TheBlackDeath', '14', 'Task')">
-							<h2>Long-Term</h2>
-						</div>
-						<div class="tasks-topic" id="Topic15" onclick="ResetTopic('TheBlackDeath', '15', 'Task')">
-							<h2>Fuedal System</h2>
-						</div>
+					<div class="tasks-topicscroll" id="TopicScrollbar">
 					</div>
 				</div>
 			</div>

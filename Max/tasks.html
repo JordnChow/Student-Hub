@@ -7,14 +7,16 @@
 	<script src="index.js"></script>
 	<title>StudentHub - Tasks</title>
 	<link rel="icon" type="image/x-icon" href="Images/LowRes Favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
-<body>
+<body onload="LoadTasks()">
 	<div class="partialsidebar sidebaranimate" style="display: none; right: 0" id="SidebarPartial">
 		<button onclick="CloseSidebarPartial()"><i class="fa fa-close"></i></button><br>
-	  <h1>John Doe</h1><br>
+	  <h1 id="Name">John Doe</h1><br>
 		<t style="fontsize:16px">Year 7 Student</t><br><br><br><br>
 	  <a><h3>Terms of Service</h3><br></a>
 	  <a><h3>Privacy Policy</h3><br></a>
+		<a onclick="NameChange()"><h3>Change Name</h3><br></a>
 		<a href="https://www.google.com/?safe=active&ssui=on"><h3 style="color: firebrick">Leave Site</h3></a>
 	</div>
 	<div class="fullsidebar sidebaranimate" style="display:none" id="SidebarFull">
@@ -24,10 +26,10 @@
 		<div class="navbar">
 			<div class="main-container">
 				<div class="fixer-container">
-					<li><img src="Images/StudentHub Logo LowRes.png" width="100" style="padding: 10px;border-radius:16px; float:left" height="85"><button onclick="OpenSidebarFull()"><img src="Images/Round Profile Pic Example.png" width="85" height="85" style="padding:10px;float:right" id="BackupProPic"></button></li><br><br><br><br><br><br>
+					<li><img src="Images/StudentHub Logo LowRes.png" width="100" style="padding: 10px;border-radius:16px; float:left" height="85"><button onclick="OpenSidebarFull()"><img src="Images/NormalProfilePic.png" width="85" height="85" style="padding:10px;float:right" id="BackupProPic"></button></li><br><br><br><br><br><br>
 					<li><a href="homepage.html">Home</a></li>
 				  <li><a id="active">Tasks</a></li>
-				  <li style="float:right"><button onclick="OpenSidebarPartial()"><img src="Images/Round Profile Pic Example.png" width="85" height="85" style="padding:10px;float:right" id="MainProPic"></button></li>
+				  <li style="float:right"><button onclick="OpenSidebarPartial()"><img src="Images/NormalProfilePic.png" width="85" height="85" style="padding:10px;float:right" id="MainProPic"></button></li>
 					<li><a href="info.html">Info</a></li>
 					<li><a href="record.html">Record</a></li>
 				</div>
@@ -35,29 +37,8 @@
 		</div>
 		<div class="notnav">
 			<div class="emptycolumn"></div>
-			<div class="notemptycolumn">
+			<div class="notemptycolumn" id="MainParent">
 				<h1 style="font-size: 72px; padding-top: 64px; padding-left: 0px">Tasks</h1><br>
-				<t style="font-size: 36px;font-family: 'Segoe UI'; color: #819ca1">History</t><br><br>
-				<div class="subjectsquare" onclick="TaskSelect('TheBlackDeath')">
-					<img class="center bottom" src="Images/The Black Death/The Black Death.png">
-					<div class="center bottom"><h2>The Black Death</h2></div>
-				</div>
-				<div class="subjectsquare" onclick="TaskSelect('TheRomanEmpire')">
-					<img class="center bottom" src="Images/Roman Colosseum.png">
-					<div class="center bottom"><h2>The Roman Empire</h2></div>
-				</div>
-				<div class="subjectsquare" onclick="TaskSelect('AncientEgypt')">
-					<img class="center bottom" src="Images/Great Pyramids.png">
-					<div class="center bottom"><h2>Ancient Egypt</h2></div>
-				</div>
-				<div class="subjectsquare" onclick="TaskSelect('AncientJapan')">
-					<img class="center bottom" src="Images/Torii Gate.png">
-					<div class="center bottom"><h2>Ancient Japan</h2></div>
-				</div>
-				<div class="subjectsquare" onclick="TaskSelect('MedievalEurope')">
-					<img class="center bottom" src="Images/Castle.png">
-					<div class="center bottom"><h2>Medieval Europe</h2></div>
-				</div>
 			</div>
 		</div>
 	</ul>
