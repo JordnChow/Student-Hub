@@ -1,0 +1,88 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+main {
+    width: 40%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slide Functionality */
+.slide {
+    position:absolute;
+    width: 100%;
+    left: 100%;
+    transition: left 0.5s ease;
+}
+
+.active-slide {
+    left: 0;
+}
+
+.quiz.prev{
+    left: 100%;
+}
+
+.quiz-container {
+    width: 300px;
+    overflow: hidden;
+}
+
+button {
+    margin-top: 18rem;
+}
+
+.answer-button{
+    margin-top: 0;
+    width: 100%;
+    background: #a2c4c9;
+    text-align: left;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all ease 0.5s;
+}
+
+.answer-button:hover{
+    background: orange;
+}
+
+.selected-answer{
+    background: #f9cb9c;
+    margin-left: 5%;
+    width: 95%;
+    box-shadow: -5px 5px 0 orange;
+}
+
+/* Slide list  */
+ul{
+    list-style-type: none;
+}
+
+li {
+    /* Border */
+    margin: 15px;
+}
+
+/* progress bar */
+
+.progress-bar-bar{
+    border-radius: 20px;
+    border: 3px solid black;
+    background: lightgray;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.progress-bar{
+    background: green;
+    transition: all ease-in 1s;
+}
