@@ -1,11 +1,35 @@
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
+const resultsP = document.getElementById("results-p")
 const finishButton = document.getElementById('finish');
 const progressBar = document.getElementById('progress-bar');
 const quizNumber = document.getElementById('quiz-number');
+const nextButton = document.getElementById("next");
+const prevButton = document.getElementById("prev");
+const time = document.getElementById("timer");
+const aiResponse = document.getElementById("aires");
+import fetchAI from './fetch.js';
 import { questions } from '../global/questionDatabase.js';
 
+let stopwatch = {
+    startTime: null,
+    elapsedTime: 0,
+    intervalId: null
+};
+
+function startStopwatch() {
+    stopwatch.startTime = Date.now();
+    stopwatch.intervalId = setInterval(() => {
+        const elapsedTime = Date.now() - stopwatch.startTime + stopwatch.elapsedTime;
+        const seconds = parseInt((elapsedTime / 1000) % 60);
+        const minutes = parseInt((elapsedTime / (1000 * 60)) % 60);
+        const hours = parseInt((elapsedTime / (1000 * 60 * 60)) % 24);
+        time.innerHTML = `Time elapsed: <br> ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+    }, 100);
+}
+
 function buildQuiz() {
+    resultsContainer.style.display = 'none';
     progressBar.style.width = '0%';
     quizNumber.innerHTML = "Question 1:"
     const output = [];
@@ -22,7 +46,7 @@ function buildQuiz() {
         }
         output.push(
             `<div class="slide">
-                <div class="question"> ${currentQuestion.question} </div>
+                <div class="question"> <h3>${currentQuestion.question} <h3/></div>
                 <ul class="answers"> ${answers.join("")} </ul>
             </div>`
         );
@@ -33,6 +57,7 @@ function buildQuiz() {
     // Add event listeners to all answer buttons
     const answerButtons = quizContainer.querySelectorAll('.answer-button');
     answerButtons.forEach(button => button.addEventListener('click', selectAnswer));
+    startStopwatch();
 }
 
 let userAnswers = {};
@@ -49,19 +74,18 @@ function selectAnswer(event) {
 
 let numCorrect = 0;
 function checkQuestion() {
-    if(userAnswers[currentSlide] === undefined) {
+    if (userAnswers[currentSlide] === undefined) {
         alert("Please select an answer");
         return;
-    } else if(userAnswers[currentSlide] === questions[currentSlide].correctAnswer) {
+    } else if (userAnswers[currentSlide] === questions[currentSlide].correctAnswer) {
         numCorrect++
     }
-    if(currentSlide !== questions.length - 1) {
+    if (currentSlide !== questions.length - 1) {
         nextQuestion();
     }
 }
 
 buildQuiz();
-const nextButton = document.getElementById("next");
 const slides = document.querySelectorAll(".slide");
 let currentSlide = 0;
 
@@ -86,15 +110,78 @@ function nextQuestion() {
     showSlide(currentSlide + 1);
 }
 
-function finishQuiz(){
+function finishQuiz() {
     progressBar.style.width = '100%';
     checkQuestion();
     slides.forEach(slide => slide.style.display = 'none')
-    showSlide(questions.length-1);
-    resultsContainer.innerHTML = `You got ${numCorrect} out of ${questions.length} questions correct`;
-    numCorrect = 0;
+    showSlide(questions.length - 1);
+    quizNumber.innerHTML = "";
     finishButton.style.display = 'none'
+    prevButton.style.display = 'none'
+    clearInterval(stopwatch.intervalId);
+    displayResults();
+    displayAIResponse();
+}
+
+function displayResults() {
+    resultsContainer.style.display = 'block';
+    percentAnimation();
+    displayTime()
+    resultsP.innerHTML = `You got ${numCorrect} out of ${questions.length} questions correct!`;
+    numCorrect = 0;
+}
+
+function percentAnimation() {
+    const percentText = document.querySelector(".percent-stat");
+    let percent = numCorrect/questions.length * 100;
+    if(percent === Infinity) {
+        percent = 0;
+    }
+    if(percent <= 50) {
+        percentText.style.color = "red";
+    } else if(percent <= 80) {
+        percentText.style.color = "orange";
+    }
+    let currentPercent = 0;
+    const percentAnimation = setInterval(() => {
+        if (currentPercent > percent) {
+            clearInterval(percentAnimation);
+        } else {
+            percentText.innerHTML = `${currentPercent}%`;
+        }
+        currentPercent++;
+    }, 30);
+}
+
+function displayTime() {
+    const timed = time.innerHTML;
+}
+
+async function displayAIResponse() {
+    displayAnimation();
+    const response = await fetchAI("Locate common extraction sites of Coal in australia");
+    removeAnimation();
+    aiResponse.innerHTML = response;
+}
+
+function displayAnimation(){
+    const animation = document.getElementById("loading")
+    animation.style.display = "block";
+}
+
+function removeAnimation(){
+    const animation = document.getElementById("loading")
+    animation.style.display = "none";
+}
+
+function showPreviousSlide() {
+    if (currentSlide === 0) {
+        return;
+    } else {
+        showSlide(currentSlide - 1);
+    }
 }
 
 finishButton.addEventListener('click', finishQuiz);
 nextButton.addEventListener("click", checkQuestion);
+prevButton.addEventListener("click", showPreviousSlide);
