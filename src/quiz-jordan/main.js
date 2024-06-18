@@ -8,6 +8,7 @@ const nextButton = document.getElementById("next");
 const prevButton = document.getElementById("prev");
 const time = document.getElementById("timer");
 const aiResponse = document.getElementById("aires");
+const aiButton = document.getElementById("buttonAi")
 import fetchAI from './fetch.js';
 import { questions } from '../global/questionDatabase.js';
 
@@ -74,10 +75,7 @@ function selectAnswer(event) {
 
 let numCorrect = 0;
 function checkQuestion() {
-    if (userAnswers[currentSlide] === undefined) {
-        alert("Please select an answer");
-        return;
-    } else if (userAnswers[currentSlide] === questions[currentSlide].correctAnswer) {
+    if (userAnswers[currentSlide] === questions[currentSlide].correctAnswer) {
         numCorrect++
     }
     if (currentSlide !== questions.length - 1) {
@@ -120,18 +118,17 @@ function finishQuiz() {
     prevButton.style.display = 'none'
     clearInterval(stopwatch.intervalId);
     displayResults();
-    displayAIResponse();
 }
 
 function displayResults() {
     resultsContainer.style.display = 'block';
-    percentAnimation();
+    displayPercentage();
     displayTime()
     resultsP.innerHTML = `You got ${numCorrect} out of ${questions.length} questions correct!`;
     numCorrect = 0;
 }
 
-function percentAnimation() {
+function displayPercentage() {
     const percentText = document.querySelector(".percent-stat");
     let percent = numCorrect/questions.length * 100;
     if(percent === Infinity) {
@@ -142,25 +139,22 @@ function percentAnimation() {
     } else if(percent <= 80) {
         percentText.style.color = "orange";
     }
-    let currentPercent = 0;
-    const percentAnimation = setInterval(() => {
-        if (currentPercent > percent) {
-            clearInterval(percentAnimation);
-        } else {
-            percentText.innerHTML = `${currentPercent}%`;
-        }
-        currentPercent++;
-    }, 30);
+    percentText.innerHTML = `${percent}%`;
 }
 
 function displayTime() {
-    const timed = time.innerHTML;
+    const timeSpan = document.querySelector(".time-stat");
+    const timeTaken = time.innerHTML;
+
+    timeSpan.innerHTML = `${timeTaken}`;
+    
 }
 
 async function displayAIResponse() {
     displayAnimation();
     const response = await fetchAI("Locate common extraction sites of Coal in australia");
     removeAnimation();
+    aiResponse.style.display = "block";
     aiResponse.innerHTML = response;
 }
 
@@ -182,6 +176,8 @@ function showPreviousSlide() {
     }
 }
 
+
+aiButton.addEventListener('click', displayAIResponse);
 finishButton.addEventListener('click', finishQuiz);
 nextButton.addEventListener("click", checkQuestion);
 prevButton.addEventListener("click", showPreviousSlide);
