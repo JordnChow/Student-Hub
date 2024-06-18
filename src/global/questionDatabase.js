@@ -1,30 +1,102 @@
 export const questions = [
-    {
-      question: "Who invented JavaScript?",
-      answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
-      },
-      correctAnswer: "c"
+  {
+    question: "What was the Black Death?",
+    answers: {
+      a: "A volcanic eruption",
+      b: "A plague pandemic",
+      c: "A major war",
+      d: "A famine"
     },
-    // {
-    //   question: "Which one of these is a JavaScript package manager?",
-    //   answers: {
-    //     a: "Node.js",
-    //     b: "TypeScript",
-    //     c: "npm"
-    //   },
-    //   correctAnswer: "c"
-    // },
-    // {
-    //   question: "Which tool can you use to ensure code quality?",
-    //   answers: {
-    //     a: "Angular",
-    //     b: "jQuery",
-    //     c: "RequireJS",
-    //     d: "ESLint"
-    //   },
-    //   correctAnswer: "d"
-    // }
-  ];
+    correctAnswer: "b"
+  },
+  {
+    question: "In which century did the Black Death occur?",
+    answers: {
+      a: "13th century",
+      b: "14th century",
+      c: "15th century",
+      d: "16th century"
+    },
+    correctAnswer: "b"
+  },
+  // {
+  //   question: "Which bacterium caused the Black Death?",
+  //   answers: {
+  //     a: "Yersinia pestis",
+  //     b: "Salmonella enterica",
+  //     c: "Escherichia coli",
+  //     d: "Bacillus anthracis"
+  //   },
+  //   correctAnswer: "a"
+  // },
+  // {
+  //   question: "Which animal is commonly associated with spreading the Black Death?",
+  //   answers: {
+  //     a: "Dogs",
+  //     b: "Rats",
+  //     c: "Pigs",
+  //     d: "Cats"
+  //   },
+  //   correctAnswer: "b"
+  // },
+  // {
+  //   question: "Which part of the world was most affected by the Black Death?",
+  //   answers: {
+  //     a: "Asia",
+  //     b: "Europe",
+  //     c: "Africa",
+  //     d: "Americas"
+  //   },
+  //   correctAnswer: "b"
+  // },
+  // {
+  //   question: "What percentage of Europe's population is estimated to have died from the Black Death?",
+  //   answers: {
+  //     a: "10-20%",
+  //     b: "30-60%",
+  //     c: "70-80%",
+  //     d: "5-10%"
+  //   },
+  //   correctAnswer: "b"
+  // },
+  // {
+  //   question: "What was one of the major social impacts of the Black Death?",
+  //   answers: {
+  //     a: "Increased birth rates",
+  //     b: "Decline in religious faith",
+  //     c: "Rise in feudalism",
+  //     d: "Expansion of trade"
+  //   },
+  //   correctAnswer: "b"
+  // },
+  // {
+  //   question: "Which symptom was NOT typically associated with the Black Death?",
+  //   answers: {
+  //     a: "Buboes",
+  //     b: "High fever",
+  //     c: "Loss of limbs",
+  //     d: "Chills"
+  //   },
+  //   correctAnswer: "c"
+  // },
+  // {
+  //   question: "How did the Black Death spread so quickly across Europe?",
+  //   answers: {
+  //     a: "Trade routes",
+  //     b: "Wildfires",
+  //     c: "Earthquakes",
+  //     d: "Climate change"
+  //   },
+  //   correctAnswer: "a"
+  // },
+  // {
+  //   question: "Which medical practice was commonly used during the Black Death but was largely ineffective?",
+  //   answers: {
+  //     a: "Vaccination",
+  //     b: "Bloodletting",
+  //     c: "Antibiotics",
+  //     d: "Chemotherapy"
+  //   },
+  //   correctAnswer: "b"
+  // }
+];

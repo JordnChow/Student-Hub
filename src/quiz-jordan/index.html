@@ -14,7 +14,10 @@
 
 <body>
     <div class="navbar">
-        <button class="returnHome"><span class="fas fa-chevron-left"></span></button>
+        <button class="returnHome">
+            <span class="fas fa-chevron-left"></span>
+            <span class="text">Leave</span>
+        </button>
         <h1 id="timer" class="navbarTimer"></h1>
         <a class="imgLogo"><img src="../Images/StudentHub Logo LowRes.png" height="85px"></a>
 
@@ -31,10 +34,11 @@
                     <div id="results-p"></div>
                     <h1>Your statistics during this quiz:</h1>
                     <h2>Questions Correct(%): <span class="percent-stat"></span></h2>
-                    <h2>Time taken(min): <span class="time-stat"></span></h2>
+                    <h2><span class="time-stat"></span></h2>
                     <div class="aiGen">
-                        <div id="loading" class="loader"></div>
-                        <p id="aires"></p>
+                        <button id="buttonAi" class="button-ai">RECIEVE ADAPTIVE INFORMATION</button>
+                        <img id="loading" class="loader" src="../Images/animation/aiLoadingAnimation.svg"></img>
+                        <div id="aires" class="scrollable-box"></div>
                     </div>
                 </div>
             </div>
