@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link href="styles.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="index.js"></script>
+	<title>StudentHub - Homepage</title>
+	<link rel="icon" type="image/x-icon" href="Images/LowRes Favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</head>
+<body onload="LoadHomepageSubjects()">
+	<div class="standardscrollbar changescrollbar">
+		<ul>
+			<div class="navbar standardnav changenav">
+				<div class="main-container">
+					<div class="fixer-container">
+						<li><img src="Images/StudentHub Logo LowRes.png" width="100" style="padding: 10px;border-radius:16px; float:left" height="85"><button onclick="OpenSidebarFull()"><img src="Images/NormalProfilePic.png" width="85" height="85" style="padding:10px;float:right" id="BackupProPic"></button></li><br><br><br><br><br><br>
+						<li><a id="active">Home</a></li>
+					  <li><a href="tasks.html">Tasks</a></li>
+					  <li style="float:right"><button onclick="OpenSidebarPartial()"><img src="Images/NormalProfilePic.png" width="85" height="85" style="padding:10px;float:right" id="MainProPic"></button></li>
+						<li><a href="info.html">Info</a></li>
+						<li><a href="record.html">Record</a></li>
+					</div>
+				</div>
+			</div>
+			<div class="notnav">
+				<div class="emptycolumn"></div>
+				<div class="notemptycolumn" id="MainParent">
+					<div class="homepage-stats">
+						<br><br>
+						<h1 id="Name">John Doe</h1><br>
+						<t style="fontsize:16px; margin: 20px">Year 7 Student</t><br><br><br><br>
+						<a><h3>Terms of Service</h3><br></a>
+						<a><h3>Privacy Policy</h3><br></a>
+						<a onclick="NameChange()"><h3>Change Name</h3><br></a>
+						<a><h3>Settings</h3></a>
+						<div class="homepage-settings">
+							<div class="hover-box" onClick="SetColour('standard')"><img src="Images/CPstandard.png" width="200"></div>
+							<div class="hover-box" onClick="SetColour('cool')"><img src="Images/CPcool.png" width="200"></div>
+							<div class="hover-box" onClick="SetColour('warm')"><img src="Images/CPwarm.png" width="200"></div>
+							<div class="hover-box" onClick="SetColour('neutral')"><img src="Images/CPneutral.png" width="200"></div>
+						</div>
+					</div>
+					<br><br><br><br><br>
+					<h1 style="font-size: 72px; padding-top: 64px !important; padding-left: 0px; display: inline">Hello,</h1><br>
+					<h1 style="font-size: 72px; padding-top: 64px; padding-left: 0px; display: inline" id="HomepageName">John Doe</h1><br>
+					<div class="homepagesubtext standardtext changetext" id="Year"><t>Year 7 Student</t></div><br><br><br>
+					<div class="homepagesubtext standardtext changetext"><t>Recent Subjects</t></div>
+					<br>
+				</div>
+			</div>
+		</ul>
+	</div>
+</body>
+</html>
