@@ -67,7 +67,7 @@ function ChangeColour() {
 		}
 		x++
 	}
-	var palletebox = document.querySelector('.palletebox')
+	var palletebox = document.getElementById("palletebox")
 	if (palletebox) {
 		var background = getComputedStyle(palletebox).backgroundColor
 		document.body.style.backgroundColor = background
