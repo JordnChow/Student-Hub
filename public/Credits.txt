@@ -1,0 +1,4 @@
+Coding: Max Galea
+Github Management: Jordan Chow
+Database Design: Jake Pikios
+Palette Design: Mark Kopse
