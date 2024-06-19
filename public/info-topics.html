@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link href="styles.css" rel="stylesheet" type="text/css">
+	<link href="palletes.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<script src="script.js"></script>
+	<title>StudentHub - The Black Death</title>
+	<link rel="icon" type="image/x-icon" href="Images/LowRes Favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</head>
+<body onload="LoadInfoTopics()" class="standardscrollbar changescrollbar">
+	<ul>
+		<div class="navbar standardnav changenav">
+			<div class="main-container">
+				<div class="fixer-container">
+					<li><img src="Images/StudentHub Logo LowRes.png" width="100" style="padding: 10px;border-radius:16px; float:left" height="85"><button onclick="OpenSidebarFull()"><img src="Images/NormalProfilePic.png" width="85" height="85" style="padding:10px;float:right" id="BackupProPic"></button></li><br><br><br><br><br><br>
+					<li><a href="index.html">Home</a></li>
+				  <li><a href="tasks.html">Tasks</a></li>
+				  <li style="float:right"><button onclick="OpenSidebarPartial()"><img src="Images/NormalProfilePic.png" width="85" height="85" style="padding:10px;float:right" id="MainProPic"></button></li>
+					<li><a id="active">Info</a></li>
+					<li><a href="record.html">Record</a></li>
+				</div>
+			</div>
+		</div>
+		<div class="notnav">
+			<div class="emptycolumn"><a href="info.html"><i class="fa fa-toggle-left standardtext changetext" style="padding-top: 16px; padding-left: 100px; font-size:40px;"></i></a></div>
+			<div class="notemptycolumn">
+				<div class="tasks-info standardscrollbar changescrollbar standardmain changemain">
+					<table id="PleaseSelect">
+						<tr><td><h3 style="text-align: center">Select Task To Begin</h3></td></tr>
+					</table>
+					<table id="TheInfo">
+						<tr><td><h2 id="TaskTitle"></h2></td></tr><br><br>
+						<tr><td><img src="#" height="500" class="rounded" id="TaskImage" alt="Task Image"></td></tr><br><br>
+						<tr><td><br></td></tr>
+						<tr><td><t id="TaskText"></t></td></tr>
+					</table>
+				</div>
+				<div class="tasks-topiccolumn">
+					<div class="tasks-subjectsquare standardcontrast changecontrast">
+						<img class="center bottom" id="SubjectImage">
+						<div class="center bottom"><h2 id="SubjectName">The Black Death</h2></div>
+					</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+					<div class="tasks-topicscroll standardscrollbar changescrollbar"  id="TopicScrollbar">
+					</div>
+				</div>
+			</div>
+		</div>
+	</ul>
+</body>
+</html>
