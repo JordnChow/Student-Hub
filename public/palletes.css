@@ -414,3 +414,62 @@
 .lowcontrastscrollbar ::-webkit-scrollbar-thumb:hover {
   background: #b5aea5ff;
 }
+
+/*Sacraments*/
+.Sacramentstext {
+	color: #23510fff;
+}
+
+.Sacramentscontrast {
+	background-color: #800000;
+}
+
+.Sacramentsdark {
+	background-color: #23510fff;
+}
+
+.Sacramentsmain {
+	background-color: #fffffff;
+}
+
+.Sacramentslight {
+	background-color: #7d55e2ff;
+}
+
+.Sacramentsnav {
+	background-color: #fffffff;
+}
+
+.Sacramentsnav a {
+	background-color: #7d55e2ff;
+}
+
+.Sacramentsnav a:hover {
+	background-color: #800000;
+}
+
+.Sacramentsnav #active {
+	background-color: #23510fff;
+}
+
+.Sacramentsnav button {
+	background-color: #fffffff;
+}
+
+.Sacramentsscrollbar ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.Sacramentsscrollbar ::-webkit-scrollbar-track {
+	background: #7d55e2ff;
+	border-radius: 32px
+}
+ 
+.Sacramentsscrollbar ::-webkit-scrollbar-thumb {
+	background: #23510fff;
+	border-radius: 32px
+}
+
+.Sacramentsscrollbar ::-webkit-scrollbar-thumb:hover {
+  background: #800000;
+}
