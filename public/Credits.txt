@@ -1,4 +1,5 @@
 Coding: Max Galea
-Github Management: Jordan Chow
+Quiz-Design: Jordan
+Everything Management: Jordan Chow
 Database Design: Jake Pikios
 Palette Design: Mark Kopse

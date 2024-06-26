@@ -31,10 +31,31 @@
             <div id="quiz"></div>
             <div id="results" class="slide-results">
                 <div class="stats">
-                    <div id="results-p"></div>
-                    <h1>Your statistics during this quiz:</h1>
-                    <h2>Questions Correct(%): <span class="percent-stat"></span></h2>
-                    <h2><span class="time-stat"></span></h2>
+                    <h1>Quiz Results</h1>
+                    <div class="checkmark" id="checkmark-passed">
+                        <dotlottie-player id="checkmark-animation"
+                            src="https://lottie.host/24996ac1-7421-403e-8bb3-c2b94a005a3c/fcr8Sg2UOj.json"
+                            background="transparent" speed="1" style="width: 150px; height: 150px;"
+                            playBack="normal"></dotlottie-player>
+                    </div>
+                    <div class="checkmark" id="checkmark-failed">
+                        <dotlottie-player id="failed-animation" src="https://lottie.host/329a922a-b634-4790-a797-30902bdda37c/H4fzFeyOvo.json"
+                            background="transparent" speed="1" style="width: 150px; height: 150px;"
+                            playback="normal"></dotlottie-player>
+                    </div>
+                    <p id="congratulation"></p>
+                    <div class="result-stats">
+                        <div class="result-stats-container">
+                            <h2><span class="percent-stat"></span></h2>
+                            <p>YOUR SCORE</p>
+                            <p>PASSING SCORE: <span id="passing-score-stat"></span></p>
+                        </div>
+                        <div class="result-stats-container">
+                            <h2><span class="time-stat"></span></h2>
+                            <p>YOUR TIME</p>
+                            <p>AVERAGE TIME: <span id="average-time-stat"></span></p>
+                        </div>
+                    </div>
                     <div class="aiGen">
                         <button id="buttonAi" class="button-ai">RECIEVE ADAPTIVE INFORMATION</button>
                         <img id="loading" class="loader" src="../Images/animation/aiLoadingAnimation.svg"></img>
@@ -43,8 +64,7 @@
                 </div>
             </div>
             <div class="buttons-prev-next">
-                <button id="prev" class="button-prev"><i class="fa fa-arrow-left"></i></button>
-                <button id="next" class="button-next"><i class="fa fa-arrow-right"></i></button>
+                <button id="next" class="button-next">Check Answer</button>
                 <button id="finish" style="display: none;" class="button-finish">Finish</button>
             </div>
         </div>
@@ -57,6 +77,7 @@
         }
       </script>
     <script type="module" src="./main.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </body>
 
 </html>
