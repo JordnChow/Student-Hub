@@ -111,26 +111,32 @@ function LoadHomepageSubjects() {
 	var n = 1
 	var MainParent = document.getElementById("MainParent")
 	while (n != 4) {
-		var Sub;
-		var subject = localStorage.getItem("subject" + n);
-		eval('Sub=' + subject + ';');
-		var div = document.createElement("div")
-		div.className = "subjectsquare standardcontrast changecontrast"
-		div.id = "Square" + n
-		div.setAttribute("onclick", "TaskSelect('"+subject+"')")
-		MainParent.appendChild(div)
-		var Parent = document.getElementById("Square" + n)
-		
-		var Image = document.createElement("img")
-		Image.src = Sub["Image"]
-		Image.classname = "center bottom"
-		Image.style = "max-width: 250px"
-		Parent.appendChild(Image)
-		
-		var Text = document.createElement("div")
-		Text.classname = "center bottom"
-		Text.innerHTML = "<h2>" + Sub["Name"] + "</h2>"
-		Parent.appendChild(Text)
+		try {
+			var Sub;
+			var subject = localStorage.getItem("subject" + n);
+			eval('Sub=' + subject + ';');
+			var div = document.createElement("div")
+			div.className = "subjectsquare standardcontrast changecontrast"
+			div.id = "Square" + n
+			div.setAttribute("onclick", "TaskSelect('"+subject+"')")
+
+			var Image = document.createElement("img")
+			Image.src = Sub["Image"]
+			Image.classname = "center bottom"
+			Image.style = "max-width: 250px"
+
+			var Text = document.createElement("div")
+			Text.classname = "center bottom"
+			Text.innerHTML = "<h2>" + Sub["Name"] + "</h2>"
+			
+			MainParent.appendChild(div)
+			var Parent = document.getElementById("Square" + n)
+			Parent.appendChild(Image)
+			Parent.appendChild(Text)
+		} 
+		catch(err) {
+			n = 3
+		}
 		n++
 	}
 	ChangeColour()
@@ -410,6 +416,18 @@ function SelectQuiz(Select, Quiz) {
         document.getElementById("False").classList.remove('quiz-active');
 		document.getElementById(Select).classList.add('quiz-active');
         localStorage.setItem("Answer", Select)
+	} else if (Quiz == "Checkmark") {
+		let checkbox = document.getElementById("Check" + Select + "box")
+		let mainbutton = document.getElementById("Check" + Select)
+		if (checkbox.checked == true ) {
+			checkbox.checked = false
+			mainbutton.classList.remove('quiz-active');
+			localStorage.setItem(Select, "Off")
+		} else if (checkbox.checked == false ) {
+			checkbox.checked = true
+			mainbutton.classList.add('quiz-active');
+			localStorage.setItem(Select, "On")
+		}
 	}
 }
 
@@ -433,22 +451,22 @@ function Submit() {
     } else if (Qtype == "TrueFalse") {
 		document.getElementById("True").classList.remove("quiz-active");
 		document.getElementById("False").classList.remove("quiz-active");
-    } else if (Qtype == "DragDrop") {
-		var answer = sub["Topics"][TopicN]["Quiz"][CurrentQ]["Answer"]
-		let score = 0
-		var y = 0
-		while (y != 4) {
-			var a = localStorage.getItem(y+1)
-			if (a ==  answer[y]) {
-				score++
+    } else if (Qtype == "Checkmark") {
+		const GuessedAnswers = [localStorage.getItem("A"), localStorage.getItem("B"), localStorage.getItem("C"), localStorage.getItem("D")]
+		const CorrectAnswers = sub["Topics"][TopicN]["Quiz"][CurrentQ]["Answer"]
+		let x = 0
+		let shortscore = 0
+		while (x != 4) {
+			if (GuessedAnswers[x] == CorrectAnswers[x]) {
+				shortscore++
 			}
-			y++
+			x++
 		}
-		var finalscore = score/4
+		var finalscore = shortscore/4
 	}
 	if (SelectedAnswer == CorrectAnswer) {
 		var newscore = parseFloat(currentscore)+1
-	} else if (Qtype == "DragDrop") {
+	} else if (Qtype == "Checkmark") {
 		var newscore = parseFloat(currentscore)+finalscore
 	} else {
 		var newscore = currentscore
@@ -477,16 +495,16 @@ function QuizQuestion() {
 		document.getElementById("Dtext").textContent = Sub["Topics"][CurrentT]["Quiz"][NewQ]["PossibleAnswers"][3]
 	} else if (QuestionType == "TrueFalse") {
 		HideQuiz("TrueFalse")
-	} else if (QuestionType == "DragDrop") {
-		HideQuiz("DragDrop")
-		localStorage.setItem(1, "0")
-		localStorage.setItem(2, "0")
-		localStorage.setItem(3, "0")
-		localStorage.setItem(4, "0")
-		document.getElementById("drag1text").textContent = Sub["Topics"][CurrentT]["Quiz"][NewQ]["Selection"][0]
-		document.getElementById("drag2text").textContent = Sub["Topics"][CurrentT]["Quiz"][NewQ]["Selection"][1]
-		document.getElementById("drag3text").textContent = Sub["Topics"][CurrentT]["Quiz"][NewQ]["Selection"][2]
-		document.getElementById("drag4text").textContent = Sub["Topics"][CurrentT]["Quiz"][NewQ]["Selection"][3]
+	} else if (QuestionType == "Checkmark") {
+		HideQuiz("Checkmark")
+		document.getElementById("CheckAtext").textContent = Sub["Topics"][CurrentT]["Quiz"][NewQ]["PossibleAnswers"][0]
+		document.getElementById("CheckBtext").textContent = Sub["Topics"][CurrentT]["Quiz"][NewQ]["PossibleAnswers"][1]
+		document.getElementById("CheckCtext").textContent = Sub["Topics"][CurrentT]["Quiz"][NewQ]["PossibleAnswers"][2]
+		document.getElementById("CheckDtext").textContent = Sub["Topics"][CurrentT]["Quiz"][NewQ]["PossibleAnswers"][3]
+		localStorage.setItem("A", "Off")
+		localStorage.setItem("B", "Off")
+		localStorage.setItem("C", "Off")
+		localStorage.setItem("D", "Off")
 	} else if (QuestionType == "End") {
 		document.getElementById("Quiz").style.display = "none"
 		document.getElementById("End Screen").style.display = "block"
@@ -590,9 +608,9 @@ function UpdateScores(Score, Subject, Topic) {
 }
 
 function HideQuiz(Quiz) {
-	const Elements = ["A", "B", "C", "D", "True", "False", "drag1", "drag2", "drag3", "drag4", "drop1", "drop2", "drop3", "drop4"]
+	const Elements = ["A", "B", "C", "D", "True", "False", "CheckA", "CheckB", "CheckC", "CheckD"]
 	var n = 0
-	while (n != 14) {
+	while (n != 10) {
 		document.getElementById(Elements[n]).style.display = "none"
 		n++
 	}
@@ -604,30 +622,14 @@ function HideQuiz(Quiz) {
 	} else if (Quiz == "TrueFalse") {
 		N = 4
 		maxN = 6
-	} else if (Quiz == "DragDrop") {
+	} else if (Quiz == "Checkmark") {
 		N = 6
-		maxN = 14
+		maxN = 10
 	}
 	while (N != maxN) {
 		document.getElementById(Elements[N]).style.display = "block";
 		N++
 	}
-}
-
-//Quiz Drag and Drop
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev, n) {
-	ev.preventDefault();
-	var data = ev.dataTransfer.getData("text");
-	localStorage.setItem(n, data)
-	ev.target.appendChild(document.getElementById(data));
 }
 
 //Record
@@ -780,7 +782,7 @@ const Sacraments = {
 	"Name" : "Sacraments",
 	"Image" : "Images/Sacraments.png",
 	"MainSubject" : "Religion",
-	"Ntopic" : 1,
+	"Ntopic" : 2,
 	"Topics" : {
 		"1" : {
 			"Title" : "Baptism",
@@ -796,54 +798,141 @@ const Sacraments = {
 					"Answer" : "A",
 				},
 				"2" : {
-                    "QuestionType" : "DragDrop",
-					"Question" : "In what order does Baptism Occur?",
-					"QuestionImage" : "Images/Sacraments/Baptism/Initiation.png",
-					"Selection" : ["A Candle is Given to the God Parents", "Water is Poured over the Recipients Head", "The Priest Baptises the Recipient", "A cross is made with with Holy Oil"],
-					"Answer" : ["drag2", "drag4", "drag3", "drag1"]
+                    "QuestionType" : "Checkmark",
+					"Question" : "What Symbolic Items are used in Baptism?",
+					"QuestionImage" : "Images/Sacraments/Baptism/Symbolic Item.jpg",
+					"PossibleAnswers" : ["A Candle", "A White Cloth", "A Chalice", "A Bible"],
+					"Answer" : ["On", "On", "Off", "Off"]
 				},
 				"3" : {
 					"QuestionType" : "4-Answer",
 					"Question" : "What Holy oil is used in Baptism?",
+					"QuestionImage" : "Images/Sacraments/Baptism/Holy Oil.jpg",
 					"PossibleAnswers" : ["Holy Oil", "Oil of Catechumens", "Oil of Chrism", "Vegetable Oil"],
 					"Answer" : "B",
 				},
 				"4" : {
 					"QuestionType" : "TrueFalse",
+					"QuestionImage" : "Images/Sacraments/Baptism/Church Interior.jpg",
 					"Question" : "Because Baptisms are usually done in the Dark, the Candle is used to light the room",
 					"Answer" : "False"
 				},
 				"5" : {
 					"QuestionType" : "4-Answer",
 					"Question" : "The oil used in Baptism helps Strengthen the Recipient. What does it help them become Resilient Against?",
+					"QuestionImage" : "Images/Sacraments/Baptism/Oil Blessing.jpg",
 					"PossibleAnswers" : ["Garlic", "People", "Cats", "The Devil"],
 					"Answer" : "D",
 				},
 				"6" : {
 					"QuestionType" : "4-Answer",
 					"Question" : "What Does the Candle Given to the Godparents Represent",
+					"QuestionImage" : "Images/Sacraments/Baptism/Baptism Candle.jpg",
 					"PossibleAnswers" : ["Jesus Christ", "Purity of the Soul", "Love", "Fire"],
 					"Answer" : "A",
 				},
 				"7" : {
 					"QuestionType" : "TrueFalse",
+					"QuestionImage" : "Images/Sacraments/Baptism/Preist Baptising.jpeg",
 					"Question" : "Only Priests Can Baptise People",
 					"Answer" : "False",
 				},
 				"8" : {
 					"QuestionType" : "4-Answer",
 					"Question" : "What Colour Garment is Given to the Child",
+					"QuestionImage" : "Images/Sacraments/Baptism/Adult Baptism.jpg",
 					"PossibleAnswers" : ["Black", "Red", "White", "Green"],
 					"Answer" : "C",
 				},
 				"9" : {
 					"QuestionType" : "4-Answer",
 					"Question" : "What Saint Baptised people in the Jordan River",
+					"QuestionImage" : "Images/Sacraments/Baptism/Jordan River.jpg",
 					"PossibleAnswers" : ["St Vincent De Paul", "St Francis of Assisi", "St John", "St Maximilian Kolbe"],
 					"Answer" : "C",
 				},
 				"10" : {
 					"QuestionType" : "TrueFalse",
+					"QuestionImage" : "Images/Sacraments/Baptism/Apostles Creed.jpg",
+					"Question" : "The Apostles Creed is told at all Baptisms",
+					"Answer" : "True",
+				},
+				"11" : {
+					"QuestionType" : "End"
+				}
+			}
+		},
+		"2" : {
+			"Title" : "Eucharist",
+			"Image" : "Images/Sacraments/Baptism/Main Image.png",
+			"TaskText" : "The sacrament of the Eucharist is ther Sacrament where we recive bread and wine that have been transformed by the preist into the body and the blood of our saviour Jesus Christ. This typically occurs by the priest or officiant running the mass saying the words of Consecration. You are not supposed to have eaten an hour before the eucharist, however it is late in the mass so commonly you have been in mass almost an hour already.",
+			"InfoText" : ".",
+			"Quiz" : {
+				"1" : {
+					"QuestionType" : "4-Answer",
+					"Question" : "Which Sacrament of Initiation is Baptism?",
+					"QuestionImage" : "Images/Sacraments/Baptism/Initiation.png",
+					"PossibleAnswers" : ["The First", "The Second", "The Third", "The Fourth"],
+					"Answer" : "A",
+				},
+				"2" : {
+                    "QuestionType" : "Checkmark",
+					"Question" : "What Symbolic Items are used in Baptism?",
+					"QuestionImage" : "Images/Sacraments/Baptism/Symbolic Item.jpg",
+					"PossibleAnswers" : ["A Candle", "A White Cloth", "A Chalice", "A Bible"],
+					"Answer" : ["On", "On", "Off", "Off"]
+				},
+				"3" : {
+					"QuestionType" : "4-Answer",
+					"Question" : "What Holy oil is used in Baptism?",
+					"QuestionImage" : "Images/Sacraments/Baptism/Holy Oil.jpg",
+					"PossibleAnswers" : ["Holy Oil", "Oil of Catechumens", "Oil of Chrism", "Vegetable Oil"],
+					"Answer" : "B",
+				},
+				"4" : {
+					"QuestionType" : "TrueFalse",
+					"QuestionImage" : "Images/Sacraments/Baptism/Church Interior.jpg",
+					"Question" : "Because Baptisms are usually done in the Dark, the Candle is used to light the room",
+					"Answer" : "False"
+				},
+				"5" : {
+					"QuestionType" : "4-Answer",
+					"Question" : "The oil used in Baptism helps Strengthen the Recipient. What does it help them become Resilient Against?",
+					"QuestionImage" : "Images/Sacraments/Baptism/Oil Blessing.jpg",
+					"PossibleAnswers" : ["Garlic", "People", "Cats", "The Devil"],
+					"Answer" : "D",
+				},
+				"6" : {
+					"QuestionType" : "4-Answer",
+					"Question" : "What Does the Candle Given to the Godparents Represent",
+					"QuestionImage" : "Images/Sacraments/Baptism/Baptism Candle.jpg",
+					"PossibleAnswers" : ["Jesus Christ", "Purity of the Soul", "Love", "Fire"],
+					"Answer" : "A",
+				},
+				"7" : {
+					"QuestionType" : "TrueFalse",
+
+					"QuestionImage" : "Images/Sacraments/Baptism/Preist Baptising.jpeg",
+					"Question" : "Only Priests Can Baptise People",
+					"Answer" : "False",
+				},
+				"8" : {
+					"QuestionType" : "4-Answer",
+					"Question" : "What Colour Garment is Given to the Child",
+					"QuestionImage" : "Images/Sacraments/Baptism/Adult Baptism.jpg",
+					"PossibleAnswers" : ["Black", "Red", "White", "Green"],
+					"Answer" : "C",
+				},
+				"9" : {
+					"QuestionType" : "4-Answer",
+					"Question" : "What Saint Baptised people in the Jordan River",
+					"QuestionImage" : "Images/Sacraments/Baptism/Jordan River.jpg",
+					"PossibleAnswers" : ["St Vincent De Paul", "St Francis of Assisi", "St John", "St Maximilian Kolbe"],
+					"Answer" : "C",
+				},
+				"10" : {
+					"QuestionType" : "TrueFalse",
+					"QuestionImage" : "Images/Sacraments/Baptism/Apostles Creed.jpg",
 					"Question" : "The Apostles Creed is told at all Baptisms",
 					"Answer" : "True",
 				},
