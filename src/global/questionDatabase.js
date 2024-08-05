@@ -11,7 +11,9 @@ export const questions = [
       c: "A major war",
       d: "A famine"
     },
-    correctAnswer: "b"
+    correctAnswer: "b",
+    type: "multipleChoice",
+    image: "https://dryuc24b85zbr.cloudfront.net/tes/resources/6313308/image?width=500&height=500&version=1611147338619"
   },
   {
     question: "In which century did the Black Death occur?",
@@ -21,17 +23,17 @@ export const questions = [
       c: "15th century",
       d: "16th century"
     },
-    correctAnswer: "b"
+    correctAnswer: "b",
+    type: "checkmark"
   },
   {
-    question: "Which bacterium caused the Black Death?",
+    question: "Is Yersinia pestis the bacterium of the Black Death?",
     answers: {
-      a: "Yersinia pestis",
-      b: "Salmonella enterica",
-      c: "Escherichia coli",
-      d: "Bacillus anthracis"
+      a: "True",
+      b: "False"
     },
-    correctAnswer: "a"
+    correctAnswer: "a",
+    type: 'trueFalse'
   },
   {
     question: "Which animal is commonly associated with spreading the Black Death?",

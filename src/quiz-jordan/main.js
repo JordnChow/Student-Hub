@@ -8,7 +8,7 @@ const finishButton = document.getElementById('finish');
 const progressBar = document.getElementById('progress-bar');
 const quizNumber = document.getElementById('quiz-number');
 const nextButton = document.getElementById("next");
-const prevButton = document.getElementById("prev");
+// const prevButton = document.getElementById("prev");
 const time = document.getElementById("timer");
 const aiResponse = document.getElementById("aires");
 const aiButton = document.getElementById("buttonAi")
@@ -20,6 +20,9 @@ import { questions } from '../global/questionDatabase.js';
 
 const questionInfo = questions.shift();
 
+let userAnswers = {};
+let userIncorrect = [];
+let selectedAnswer = null;
 let stopwatch = {
     startTime: null,
     elapsedTime: 0,
@@ -45,15 +48,16 @@ function buildQuiz() {
     const output = [];
     questions.forEach((currentQuestion, questionNumber) => {
         const answers = [];
+        const questionType = currentQuestion.type
         for (const letter in currentQuestion.answers) {
             answers.push(
                 `<li>
-                    <button class="answer-button" data-question="${questionNumber}" data-answer="${letter}">
-                        ${letter} : ${currentQuestion.answers[letter]}
-                        <i class="fa fa-times" aria-hidden="true" id="${questionNumber + 1}${letter}"></i>
-                    </button>
-                    
-                </li>`
+                        <button class="answer-button" data-question="${questionNumber}" data-answer="${letter}" id="${questionType}">
+                            ${letter} : ${currentQuestion.answers[letter]}
+                            <i class="fa fa-times" aria-hidden="true" id="${questionNumber + 1}${letter}"></i>
+                        </button>
+                        
+                    </li>`
             );
         }
         output.push(
@@ -63,71 +67,83 @@ function buildQuiz() {
             </div>`
         );
     });
+    let numQuestion = -1;
+    questions.forEach(question => {
+        numQuestion++;
+        if(question.type == "checkmark"){
+            userAnswers[numQuestion] = [];
+        }
+    });
 
     quizContainer.innerHTML = output.join('');
-
-    // Add event listeners to all answer buttons
     const answerButtons = quizContainer.querySelectorAll('.answer-button');
     answerButtons.forEach(button => button.addEventListener('click', selectAnswer));
     startStopwatch();
+    changeImage(0)
 }
 
-let userAnswers = {};
-let userIncorrect = [];
-let selectedAnswer = null;
 
 function selectAnswer(event) {
+    if (nextButton.innerHTML === 'Next Question') {
+        return;
+    }
+    
     const button = event.target;
     const questionNumber = button.dataset.question;
     selectedAnswer = button.dataset.answer;
-    userAnswers[questionNumber] = selectedAnswer;
     const answerButtons = button.parentElement.parentElement.querySelectorAll('.answer-button');
-    answerButtons.forEach(btn => btn.classList.remove('selected-answer'));
+    
+    if (button.id == 'multipleChoice') {
+        userAnswers[questionNumber] = selectedAnswer
+        answerButtons.forEach(btn => btn.classList.remove('selected-answer'));
+    } else if(button.id = 'checkmark'){
+        if(!userAnswers[questionNumber].includes(selectedAnswer)){
+            userAnswers[questionNumber].push(selectedAnswer);
+        }
+    }
+    console.log(userAnswers, userAnswers[questionNumber])
     button.classList.add(`selected-answer`);
+
 }
 
 
 let numCorrect = 0;
 function checkQuestion() {
-    if(!userAnswers[currentSlide]){
+    if (!userAnswers[currentSlide]) {
         return;
     }
-    const selectedButton = document.querySelector('.slide.active-slide .selected-answer');
+    const selectedButton = document.querySelectorAll('.slide.active-slide .selected-answer');
     if (nextButton.innerHTML === 'Check Answer') {
-        if (userAnswers[currentSlide] === questions[currentSlide].correctAnswer) {
+        selectedButton.forEach(button => {
+            if (userAnswers[currentSlide] === questions[currentSlide].correctAnswer) {
+                numCorrect++
+                button.style.backgroundColor = '#88c88a';
+                button.style.boxShadow = '-5px 5px 0 #4CAF50';
+            } else {
+                const incorrectSVG = document.getElementById(`${currentSlide + 1}${selectedAnswer}`);
+                userIncorrect.push(questions[currentSlide]);
+                button.style.backgroundColor = '#ffa590';
+                button.style.boxShadow = '-5px 5px 0 #ff6242';
+                incorrectSVG.style.display = 'inline-block';
+            }
+            if (currentSlide === questions.length - 1) {
+                finishButton.style.display = "inline-block"
+                nextButton.style.display = "none"
+            } else {
+                nextButton.innerHTML = 'Next Question';
+            }
 
-            numCorrect++
-            selectedButton.style.backgroundColor = '#88c88a';
-            selectedButton.style.boxShadow = '-5px 5px 0 #4CAF50';
-        } else {
-            const incorrectSVG = document.getElementById(`${currentSlide + 1}${selectedAnswer}`);
-            userIncorrect.push(questions[currentSlide]);
-            // selectedButton.innerHTML = "This button is selected"
-            console.log(selectedButton.innerHTML)
-            selectedButton.style.backgroundColor = '#ffa590';
-            selectedButton.style.boxShadow = '-5px 5px 0 #ff6242';
-            console.log("test");
-            console.log(`${currentSlide + 1}${selectedAnswer}`)
-            incorrectSVG.style.display = 'inline-block';
-        }
-        if (currentSlide === questions.length - 1) {
-            finishButton.style.display = "inline-block"
-            nextButton.style.display = "none"
-        } else {
-            nextButton.innerHTML = 'Next Question';
-        }
+        })
     } else {
         nextButton.innerHTML = 'Check Answer';
         nextQuestion();
 
     }
-
 }
 
+let currentSlide = 0;
 buildQuiz();
 const slides = document.querySelectorAll(".slide");
-let currentSlide = 0;
-
 showSlide(currentSlide);
 
 function showSlide(n) {
@@ -137,6 +153,8 @@ function showSlide(n) {
 }
 
 function nextQuestion() {
+    changeImage()
+
     quizNumber.innerHTML = `Question ${currentSlide + 2}:`
     progressBar.style.width = `${(currentSlide + 1) / questions.length * 100}%`;
     showSlide(currentSlide + 1);
@@ -216,6 +234,12 @@ function displayAnimation() {
 function removeAnimation() {
     const animation = document.getElementById("loading")
     animation.style.display = "none";
+}
+
+function changeImage(n = currentSlide + 1) {
+    console.log(n)
+    const img = document.getElementById("quiz-image");
+    questions[n].image ? img.src = questions[n].image : img.src = "https://dryuc24b85zbr.cloudfront.net/tes/resources/6313308/image?width=500&height=500&version=1611147338619";
 }
 
 
