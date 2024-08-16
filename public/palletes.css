@@ -421,39 +421,39 @@
 }
 
 .Sacramentscontrast {
-	background-color: #800000;
+	background-color: #FF7FAE;
 }
 
 .Sacramentsdark {
-	background-color: #23510fff;
+	background-color: #8333E9;
 }
 
 .Sacramentsmain {
-	background-color: #fffffff;
+	background-color: #FFC6BF;
 }
 
 .Sacramentslight {
-	background-color: #7d55e2ff;
+	background-color: #F0F7F1;
 }
 
 .Sacramentsnav {
-	background-color: #fffffff;
+	background-color: #FFC6BF;
 }
 
 .Sacramentsnav a {
-	background-color: #7d55e2ff;
+	background-color: #F0F7F1;
 }
 
 .Sacramentsnav a:hover {
-	background-color: #800000;
+	background-color: #FF7FAE;
 }
 
 .Sacramentsnav #active {
-	background-color: #23510fff;
+	background-color: #8333E9;
 }
 
 .Sacramentsnav button {
-	background-color: #fffffff;
+	background-color: #FFC6BF;
 }
 
 .Sacramentsscrollbar ::-webkit-scrollbar {
@@ -461,15 +461,15 @@
 }
 
 .Sacramentsscrollbar ::-webkit-scrollbar-track {
-	background: #7d55e2ff;
+	background: #F0F7F1;
 	border-radius: 32px
 }
  
 .Sacramentsscrollbar ::-webkit-scrollbar-thumb {
-	background: #23510fff;
+	background: #8333E9;
 	border-radius: 32px
 }
 
 .Sacramentsscrollbar ::-webkit-scrollbar-thumb:hover {
-  background: #800000;
+  background: #FF7FAE;
 }

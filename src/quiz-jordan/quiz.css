@@ -19,35 +19,39 @@ body {
 }
 
 main {
-
+    display: flex;
     background: white;
     padding: 20px;
-    width: 60%;
+    width: 95%;
     overflow: hidden;
     position: absolute;
-    top: 180px;
+    top: 130px;
     border-radius: 30px;
-    box-shadow: -5px 5px 1px 5px rgba(0, 0, 0, 0.514)
 }
 
-.quiz-body {
+.quiz {
+    border-left: 4px #3aa1a8 solid;
+    flex: 1;
+    padding: 20px;
+    float: right;
+    width: 50%;
     background: white;
 }
 
 /* Slide Functionality */
 .slide {
     position: absolute;
-    width: 90%;
-    left: 100%;
-    transition: left 0.5s ease;
+    width: 47.5%;
+    left: 105%;
+    transition: all 1s ease;
 }
 
 .active-slide {
-    left: 20px;
+    left: 51%;
 }
 
 .quiz.prev {
-    left: 100%;
+    right: 100%;
 }
 
 .answer-button {
@@ -138,6 +142,10 @@ li {
 .button-ai {
     margin: 30px;
     width: 50%;
+}
+
+#checkmark{
+    margin-left: 0;
 }
 
 /* results */
@@ -250,14 +258,14 @@ li {
     padding: 30px 20px;
 }
 
-.imgLogo {
+.navbarTopic{
+    font-family: "montserrat";
     flex: 1;
-    float: right;
 }
 
 .navbarTimer {
     font-family: "montserrat";
-    flex: 4;
+    flex: 1;
 }
 
 .text {
@@ -273,4 +281,17 @@ li {
 .loader {
     display: none;
     margin: auto;
+}
+
+/* Image section in quiz */
+
+.image{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#quiz-image{
+    max-width: 100%;
+    object-fit: contain;
 }

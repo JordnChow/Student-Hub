@@ -18,54 +18,58 @@
             <span class="fas fa-chevron-left"></span>
             <span class="text">Leave</span>
         </button>
+        <h1 id="topic" class="navbarTopic"></h1>
         <h1 id="timer" class="navbarTimer"></h1>
-        <a class="imgLogo"><img src="../Images/StudentHub Logo LowRes.png" height="85px"></a>
-
     </div>
     <main>
-        <div class="progress-bar-bar">
-            <div id="progress-bar" class="progress-bar"><br></div>
+        <div class="image">
+            <img id="quiz-image"/>
         </div>
-        <div class="quiz-body">
-            <h1 class="quiz-number" id="quiz-number"></h1>
-            <div id="quiz"></div>
-            <div id="results" class="slide-results">
-                <div class="stats">
-                    <h1>Quiz Results</h1>
-                    <div class="checkmark" id="checkmark-passed">
-                        <dotlottie-player id="checkmark-animation"
-                            src="https://lottie.host/24996ac1-7421-403e-8bb3-c2b94a005a3c/fcr8Sg2UOj.json"
-                            background="transparent" speed="1" style="width: 150px; height: 150px;"
-                            playBack="normal"></dotlottie-player>
-                    </div>
-                    <div class="checkmark" id="checkmark-failed">
-                        <dotlottie-player id="failed-animation" src="https://lottie.host/329a922a-b634-4790-a797-30902bdda37c/H4fzFeyOvo.json"
-                            background="transparent" speed="1" style="width: 150px; height: 150px;"
-                            playback="normal"></dotlottie-player>
-                    </div>
-                    <p id="congratulation"></p>
-                    <div class="result-stats">
-                        <div class="result-stats-container">
-                            <h2><span class="percent-stat"></span></h2>
-                            <p>YOUR SCORE</p>
-                            <p>PASSING SCORE: <span id="passing-score-stat"></span></p>
+        <div class="quiz">
+            <div class="progress-bar-bar">
+                <div id="progress-bar" class="progress-bar"><br></div>
+            </div>
+            <div class="quiz-body">
+                <h1 class="quiz-number" id="quiz-number"></h1>
+                <div id="quiz"></div>
+                <div id="results" class="slide-results">
+                    <div class="stats">
+                        <h1>Quiz Results</h1>
+                        <div class="checkmark" id="checkmark-passed">
+                            <dotlottie-player id="checkmark-animation"
+                                src="https://lottie.host/24996ac1-7421-403e-8bb3-c2b94a005a3c/fcr8Sg2UOj.json"
+                                background="transparent" speed="1" style="width: 150px; height: 150px;"
+                                playBack="normal"></dotlottie-player>
                         </div>
-                        <div class="result-stats-container">
-                            <h2><span class="time-stat"></span></h2>
-                            <p>YOUR TIME</p>
-                            <p>AVERAGE TIME: <span id="average-time-stat"></span></p>
+                        <div class="checkmark" id="checkmark-failed">
+                            <dotlottie-player id="failed-animation" src="https://lottie.host/329a922a-b634-4790-a797-30902bdda37c/H4fzFeyOvo.json"
+                                background="transparent" speed="1" style="width: 150px; height: 150px;"
+                                playback="normal"></dotlottie-player>
                         </div>
-                    </div>
-                    <div class="aiGen">
-                        <button id="buttonAi" class="button-ai">RECIEVE ADAPTIVE INFORMATION</button>
-                        <img id="loading" class="loader" src="../Images/animation/aiLoadingAnimation.svg"></img>
-                        <div id="aires" class="scrollable-box"></div>
+                        <p id="congratulation"></p>
+                        <div class="result-stats">
+                            <div class="result-stats-container">
+                                <h2><span class="percent-stat"></span></h2>
+                                <p>YOUR SCORE</p>
+                                <p>PASSING SCORE: <span id="passing-score-stat"></span></p>
+                            </div>
+                            <div class="result-stats-container">
+                                <h2><span class="time-stat"></span></h2>
+                                <p>YOUR TIME</p>
+                                <p>AVERAGE TIME: <span id="average-time-stat"></span></p>
+                            </div>
+                        </div>
+                        <div class="aiGen">
+                            <button id="buttonAi" class="button-ai">RECIEVE ADAPTIVE INFORMATION</button>
+                            <img id="loading" class="loader" src="../Images/animation/aiLoadingAnimation.svg"></img>
+                            <div id="aires" class="scrollable-box"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="buttons-prev-next">
-                <button id="next" class="button-next">Check Answer</button>
-                <button id="finish" style="display: none;" class="button-finish">Finish</button>
+                <div class="buttons-prev-next">
+                    <button id="next" class="button-next">Check Answer</button>
+                    <button id="finish" style="display: none;" class="button-finish">Finish</button>
+                </div>
             </div>
         </div>
     </main>
