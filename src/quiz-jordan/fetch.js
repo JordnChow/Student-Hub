@@ -1,6 +1,5 @@
-// import { API } from "./api";
 import { marked } from 'https://cdn.jsdelivr.net/npm/marked@5.0.1/lib/marked.esm.js';
-const API = "AIzaSyCAlnZotTuIrvwLHWRYWPc-jm3p_0DK56w"
+const API = "AIzaSyCAlnZotTuIrvwLHWRYWPc-jm3p_0DK56w" // its free api dont bother stealing
 import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(API);
 
@@ -13,10 +12,8 @@ async function fetchAI(prompt) {
         const text = marked(response.text());
         return text;
     } catch (error) {
-        console.error("Error generating content:", error);
+        return `Error fetching data ${data}`
     }
 }
-
-
 
 export default fetchAI;

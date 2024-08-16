@@ -15,8 +15,25 @@ const aiButton = document.getElementById("buttonAi")
 const passingScoreStat = document.getElementById("passing-score-stat");
 const averageTimeStat = document.getElementById("average-time-stat");
 const congratulation = document.getElementById("congratulation")
+const navbarTopic = document.getElementById("topic")
 import fetchAI from './fetch.js';
-import { questions } from '../global/questionDatabase.js';
+import { questionDB } from '../global/questionDatabase.js';
+
+
+function getUrlParams() {
+    const params = {};
+    const parser = new URLSearchParams(window.location.search);
+    for (const [key, value] of parser.entries()) {
+        params[key] = value;
+    }
+    return params;
+}
+const questionTopic = getUrlParams()
+const questions = questionDB[questionTopic.quizId]
+
+if (questions === undefined || !questions) {
+    window.location.href = "../homepage/homepage.html"
+}
 
 const questionInfo = questions.shift();
 
@@ -43,6 +60,8 @@ function startStopwatch() {
 }
 
 function buildQuiz() {
+    document.title = questionInfo.title
+    navbarTopic.innerHTML = questionInfo.title
     progressBar.style.width = '0%';
     quizNumber.innerHTML = "Question 1:"
     const output = [];
@@ -61,7 +80,7 @@ function buildQuiz() {
             );
         }
         output.push(
-            `<div class="slide">
+            `<div class="slide" id=${questionType}>
                 <div class="question"> <h3>${currentQuestion.question} <h3/></div>
                 <ul class="answers"> ${answers.join("")} </ul>
             </div>`
@@ -70,7 +89,7 @@ function buildQuiz() {
     let numQuestion = -1;
     questions.forEach(question => {
         numQuestion++;
-        if(question.type == "checkmark"){
+        if (question.type == "checkmark") {
             userAnswers[numQuestion] = [];
         }
     });
@@ -87,18 +106,26 @@ function selectAnswer(event) {
     if (nextButton.innerHTML === 'Next Question') {
         return;
     }
-    
+
     const button = event.target;
     const questionNumber = button.dataset.question;
     selectedAnswer = button.dataset.answer;
     const answerButtons = button.parentElement.parentElement.querySelectorAll('.answer-button');
-    
+
     if (button.id == 'multipleChoice') {
         userAnswers[questionNumber] = selectedAnswer
         answerButtons.forEach(btn => btn.classList.remove('selected-answer'));
-    } else if(button.id = 'checkmark'){
-        if(!userAnswers[questionNumber].includes(selectedAnswer)){
+    } else if (button.id = 'checkmark') {
+        console.log(userAnswers[questionNumber], userAnswers, questionNumber.type)
+
+
+        if (!userAnswers[questionNumber].includes(selectedAnswer)) {
             userAnswers[questionNumber].push(selectedAnswer);
+        } else {
+            button.classList.remove('selected-answer')
+            const index = userAnswers[questionNumber].indexOf(selectedAnswer)
+            userAnswers[questionNumber].splice(index, 1)
+            return;
         }
     }
     console.log(userAnswers, userAnswers[questionNumber])
@@ -109,31 +136,52 @@ function selectAnswer(event) {
 
 let numCorrect = 0;
 function checkQuestion() {
-    if (!userAnswers[currentSlide]) {
+    if (!userAnswers[currentSlide] || !userAnswers[currentSlide][0]) {
         return;
     }
-    const selectedButton = document.querySelectorAll('.slide.active-slide .selected-answer');
+    let selectedButton = document.querySelectorAll('.slide.active-slide .selected-answer');
+    const selectedSlide = document.querySelector('.slide.active-slide')
+
     if (nextButton.innerHTML === 'Check Answer') {
-        selectedButton.forEach(button => {
+        let isIncorrect;
+        if (selectedSlide.id == 'multipleChoice') {
+            selectedButton = selectedButton[0]
             if (userAnswers[currentSlide] === questions[currentSlide].correctAnswer) {
-                numCorrect++
-                button.style.backgroundColor = '#88c88a';
-                button.style.boxShadow = '-5px 5px 0 #4CAF50';
+                selectedButton.style.backgroundColor = '#88c88a';
+                selectedButton.style.boxShadow = '-5px 5px 0 #4CAF50';
             } else {
-                const incorrectSVG = document.getElementById(`${currentSlide + 1}${selectedAnswer}`);
-                userIncorrect.push(questions[currentSlide]);
-                button.style.backgroundColor = '#ffa590';
-                button.style.boxShadow = '-5px 5px 0 #ff6242';
+                const incorrectSVG = document.getElementById(`${currentSlide + 1}${selectedButton.dataset.answer}`);
+                isIncorrect = true;
+                selectedButton.style.backgroundColor = '#ffa590';
+                selectedButton.style.boxShadow = '-5px 5px 0 #ff6242';
                 incorrectSVG.style.display = 'inline-block';
             }
-            if (currentSlide === questions.length - 1) {
-                finishButton.style.display = "inline-block"
-                nextButton.style.display = "none"
-            } else {
-                nextButton.innerHTML = 'Next Question';
-            }
+        } else if (selectedSlide.id = 'checkmark') {
+            selectedButton.forEach((button, index) => {
+                if (button.dataset.answer === questions[currentSlide].correctAnswer[index]) {
+                    button.style.backgroundColor = '#88c88a';
+                    button.style.boxShadow = '-5px 5px 0 #4CAF50';
+                } else {
+                    const incorrectSVG = document.getElementById(`${currentSlide + 1}${button.dataset.answer}`);
+                    isIncorrect = true;
+                    button.style.backgroundColor = '#ffa590';
+                    button.style.boxShadow = '-5px 5px 0 #ff6242';
+                    incorrectSVG.style.display = 'inline-block';
+                }
 
-        })
+            })
+        }
+        if (isIncorrect) {
+            userIncorrect.push(questions[currentSlide]);
+        } else {
+            numCorrect++
+        }
+        if (currentSlide === questions.length - 1) {
+            finishButton.style.display = "inline-block"
+            nextButton.style.display = "none"
+        } else {
+            nextButton.innerHTML = 'Next Question';
+        }
     } else {
         nextButton.innerHTML = 'Check Answer';
         nextQuestion();
@@ -181,11 +229,11 @@ function displayPercentage() {
     const percentText = document.querySelector(".percent-stat");
     averageTimeStat.innerHTML = `${questionInfo.averageTime.map(t => t < 10 ? `0${t}` : t).join(':')}`;
     passingScoreStat.innerHTML = `${questionInfo.passingScore}%`;
-    let percent = numCorrect / questions.length * 100;
+    let percent = Math.floor(numCorrect / questions.length * 100);
     if (percent === Infinity) {
         percent = 0;
     }
-    if (percent <= questionInfo.passingScore) {
+    if (percent < questionInfo.passingScore) {
         failedAnimation.style.display = "block";
         checkmarkPassed.remove()
         failedAnimation.play()

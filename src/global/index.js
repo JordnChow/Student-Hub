@@ -269,6 +269,11 @@ function ResetTopic(Database, TopicN, TorI) {
 	document.getElementById("Topic" + TopicN).classList.add('activetask');
 	document.getElementById("TaskTitle").textContent = sub["Topics"][TopicN]["Title"]
 	document.getElementById("TaskImage").src = "../" + sub["Topics"][TopicN]["Image"];
+	const subtopic = sub["Topics"][TopicN]["Title"];
+	const maintopic = subject;
+	const topicId = maintopic+subtopic;
+	console.log(topicId)
+	document.getElementById("quiz-button").href = `../quiz-jordan/index.html?quizId=${topicId}`
 	if (TorI == "Task") {
 		document.getElementById("TaskText").textContent = sub["Topics"][TopicN]["TaskText"];
 	} else {

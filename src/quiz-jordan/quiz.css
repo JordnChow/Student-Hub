@@ -145,7 +145,6 @@ li {
 }
 
 #checkmark{
-    width: 100%;
     margin-left: 0;
 }
 
@@ -259,14 +258,14 @@ li {
     padding: 30px 20px;
 }
 
-.imgLogo {
+.navbarTopic{
+    font-family: "montserrat";
     flex: 1;
-    float: right;
 }
 
 .navbarTimer {
     font-family: "montserrat";
-    flex: 4;
+    flex: 1;
 }
 
 .text {
@@ -290,5 +289,9 @@ li {
     flex: 1;
     display: flex;
     justify-content: center;
+}
 
+#quiz-image{
+    max-width: 100%;
+    object-fit: contain;
 }
