@@ -159,7 +159,7 @@ function checkQuestion() {
         } else if (selectedSlide.id = 'checkmark') {
             selectedButton.forEach((button, index) => {
                 if (button.dataset.answer === questions[currentSlide].correctAnswer[index]) {
-                    button.style.backgroundColor = '#88c88a';
+                    button.style.backgroundColor = '#88c88a'; //Correct
                     button.style.boxShadow = '-5px 5px 0 #4CAF50';
                 } else {
                     const incorrectSVG = document.getElementById(`${currentSlide + 1}${button.dataset.answer}`);
