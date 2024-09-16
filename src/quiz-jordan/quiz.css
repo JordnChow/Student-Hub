@@ -292,6 +292,7 @@ li {
 }
 
 #quiz-image{
+    height: 26rem;
     max-width: 100%;
     object-fit: contain;
 }
