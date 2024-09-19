@@ -19,6 +19,9 @@ const navbarTopic = document.getElementById("topic")
 import fetchAI from './fetch.js';
 import { questionDB } from '../global/questionDatabase.js';
 
+export default function goHome(){
+    window.location.href= "../../public/index.html"
+}
 
 function getUrlParams() {
     const params = {};
@@ -32,7 +35,7 @@ const questionTopic = getUrlParams()
 const questions = questionDB[questionTopic.quizId]
 
 if (questions === undefined || !questions) {
-    window.location.href = "../homepage/homepage.html"
+    window.location.href = "../../public/index.html"
 }
 
 const questionInfo = questions.shift();
@@ -116,9 +119,6 @@ function selectAnswer(event) {
         userAnswers[questionNumber] = selectedAnswer
         answerButtons.forEach(btn => btn.classList.remove('selected-answer'));
     } else if (button.id = 'checkmark') {
-        console.log(userAnswers[questionNumber], userAnswers, questionNumber.type)
-
-
         if (!userAnswers[questionNumber].includes(selectedAnswer)) {
             userAnswers[questionNumber].push(selectedAnswer);
         } else {
@@ -128,7 +128,6 @@ function selectAnswer(event) {
             return;
         }
     }
-    console.log(userAnswers, userAnswers[questionNumber])
     button.classList.add(`selected-answer`);
 
 }
@@ -160,7 +159,6 @@ function checkQuestion() {
             selectedButton.forEach((button, index) => {
                 if (button.dataset.answer === questions[currentSlide].correctAnswer[index]) {
                     button.style.backgroundColor = '#88c88a'; //Correct
-                    document.getElementById("overlay").style.display = "block";
                     button.style.boxShadow = '-5px 5px 0 #4CAF50';
                 } else {
                     const incorrectSVG = document.getElementById(`${currentSlide + 1}${button.dataset.answer}`);
@@ -252,8 +250,10 @@ function displayPercentage() {
 function displayTime() {
     let averageTime = questionInfo.averageTime;
     const timeSpan = document.querySelector(".time-stat");
+    console.log(timeSpan, averageTime)
     if (timeElapsed[0] <= averageTime[0] && timeElapsed[1] <= averageTime[1] && timeElapsed[2] <= averageTime[2]) {
         timeSpan.style.color = "#4CAF50"
+
     } else {
         timeSpan.style.color = "red"
     }
@@ -286,7 +286,6 @@ function removeAnimation() {
 }
 
 function changeImage(n = currentSlide + 1) {
-    console.log(n)
     const img = document.getElementById("quiz-image");
     questions[n].image ? img.src = questions[n].image : img.src = "https://dryuc24b85zbr.cloudfront.net/tes/resources/6313308/image?width=500&height=500&version=1611147338619";
 }

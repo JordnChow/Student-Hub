@@ -14,17 +14,18 @@
 
 <body>
     <div class="navbar">
-        <div id="overlay"></div>
-        <button class="returnHome">
-            <span class="fas fa-chevron-left"></span>
-            <span class="text">Leave</span>
-        </button>
+        <a href="../../public/index.html" class="returnHome">
+            <button class="returnHome">
+                <span class="fas fa-chevron-left"></span>
+                <span class="text" id="leave">Leave</span>
+            </button>
+        </a>
         <h1 id="topic" class="navbarTopic"></h1>
         <h1 id="timer" class="navbarTimer"></h1>
     </div>
     <main>
         <div class="image">
-            <img id="quiz-image"/>
+            <img id="quiz-image" />
         </div>
         <div class="quiz">
             <div class="progress-bar-bar">
@@ -43,7 +44,8 @@
                                 playBack="normal"></dotlottie-player>
                         </div>
                         <div class="checkmark" id="checkmark-failed">
-                            <dotlottie-player id="failed-animation" src="https://lottie.host/329a922a-b634-4790-a797-30902bdda37c/H4fzFeyOvo.json"
+                            <dotlottie-player id="failed-animation"
+                                src="https://lottie.host/329a922a-b634-4790-a797-30902bdda37c/H4fzFeyOvo.json"
                                 background="transparent" speed="1" style="width: 150px; height: 150px;"
                                 playback="normal"></dotlottie-player>
                         </div>

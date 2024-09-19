@@ -157,7 +157,7 @@ export const questionDB = {
     },
     {
       question: "Which of the following modern health practices were somewhat influenced by the Black Death? Select all the correct options.",
-      image: "https://www.seatrade-maritime.com/sites/seatrade-maritime.com/files/styles/article_featured_retina/public/quarantine.jpg?itok=8fB3nWu7",
+      image: "https://www.poynter.org/wp-content/uploads/2020/03/shutterstock_1198847677-scaled.jpg",
       answers: {
         a: "Mandatory quarantine during outbreaks",
         b: "Public health reporting and surveillance systems",
@@ -208,9 +208,9 @@ export const questionDB = {
         a: "Implementation of digital contact tracing apps",
         b: "Establishment of international health regulations",
         c: "Introduction of health education campaigns on hygiene",
-        e: "Mandatory quarantine and isolation protocols"
+        d: "Mandatory quarantine and isolation protocols"
       },
-      correctAnswer: ["b", "c", "e"],
+      correctAnswer: ["b", "c", "d"],
       type: "checkmark"
     },
     {
@@ -257,7 +257,7 @@ export const questionDB = {
     },
     {
       question: "Labour intensive jobs typically had worse pay due to the increased amount of labour force.",
-      image: "https://prolinkstaffing.com/sites/default/files/images/blog/istock-1365329872.jpgg",
+      image: "https://i0.wp.com/bushcraftbuddy.com/wp-content/uploads/2019/12/plague-1.jpg?resize=571%2C336&ssl=1",
       answers: {
         a: "True",
         b: "False"
@@ -297,9 +297,8 @@ export const questionDB = {
         b: "Widespread abandonment of cities",
         c: "Rise in land ownership by peasants",
         d: "Introduction of advanced medical treatments",
-        e: "Decline in trade and commerce"
       },
-      correctAnswer: ["a", "b", "c", "e"],
+      correctAnswer: ["a", "b", "c"],
       type: "checkmark"
     },
     {
@@ -352,7 +351,7 @@ export const questionDB = {
     },
     {
       question: "In the wake of the Black Death, some regions experienced economic growth due to a reduced population and increased demand for labor.",
-      image: "https://example.com/black-death-plague.jpg",
+      image: "https://i.natgeofe.com/n/a00988d9-6e71-4efb-900b-8b7fb5d39a1f/3338_4x3.jpg",
       answers: {
         a: "True",
         b: "False"
@@ -360,40 +359,6 @@ export const questionDB = {
       correctAnswer: "a",
       type: "multipleChoice"
     },
-    {
-      question: "Which of the following modern public health practices or policies have evolved from historical responses to the Black Death? Select all the correct options.",
-      image: "https://www.cognoscape.com/wp-content/uploads/2017/03/regulations.jpg",
-      answers: {
-        a: "Implementation of digital contact tracing apps",
-        b: "Establishment of international health regulations",
-        c: "Introduction of health education campaigns on hygiene",
-        e: "Mandatory quarantine and isolation protocols"
-      },
-      correctAnswer: ["b", "c", "e"],
-      type: "checkmark"
-    },
-    {
-      question: "The development of early warning systems for pandemics can be traced back to the historical responses and documentation practices during the Black Death.",
-      image: "https://openclipart.org/image/2400px/svg_to_png/104263/Warning.png",
-      answers: {
-        a: "True",
-        b: "False"
-      },
-      correctAnswer: "a",
-      type: "multipleChoice"
-    },
-    {
-      question: "Which modern public health practices, originally established during the Black Death, have been adapted to address current global health challenges? Select the most relevant option.",
-      image: "https://realitypaper.com/wp-content/uploads/2021/06/How-to-Start-a-Healthcare-Agency-in-5-Steps-750x483.jpg",
-      answers: {
-        a: "The establishment of centralized disease control agencies",
-        b: "The development of telehealth consultation services",
-        c: "The use of biometric tracking for disease prevention",
-        d: "The creation of digital platforms for public health alerts"
-      },
-      correctAnswer: "a",
-      type: "multipleChoice"
-    }
   ],
   "TheBlackDeathArtisticInfluence": [
     {
@@ -426,7 +391,7 @@ export const questionDB = {
     },
     {
       "question": "How did the Black Death contribute to the emergence of the Grim Reaper figure in art?",
-      "image": "https://example.com/path/to/grim-reaper-image.jpg",
+      "image": "https://static.wikia.nocookie.net/warhammerfb/images/8/83/Skaven_Reaper.png/revision/latest?cb=20171112040708",
       "answers": {
         "a": "The Grim Reaper symbolized the widespread fear of death during the plague and became a common motif.",
         "b": "The figure of the Grim Reaper was introduced to represent prosperity and good fortune during the recovery from the plague.",

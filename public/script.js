@@ -377,10 +377,9 @@ function ResetTopic(Database, TopicN, TorI) {
 	document.getElementById("TaskImage").src = sub["Topics"][TopicN]["Image"];
 	const subtopic = sub["Topics"][TopicN]["Title"].replace(/\s/g, "");
 	const maintopic = subject;
-	console.log(maintopic)
 	const topicId = maintopic + subtopic;
-	console.log(topicId)
-	document.getElementById("quiz-button").href = `../src/quiz-jordan/index.html?quizId=${topicId}`
+	const quizButton = document.getElementById("quiz-button")
+	quizButton ? quizButton.href = `../src/quiz-jordan/index.html?quizId=${topicId}` : null
 	if (TorI == "Task") {
 		document.getElementById("TaskText").innerHTML = sub["Topics"][TopicN]["TaskText"];
 	} else {
@@ -731,28 +730,37 @@ const TheBlackDeath = {
 	"Topics": {
 		"1": {
 			"Title": "Introduction",
-			"Image": "Images/Classified-Documents-America/grim_reaper.jpg",
-			"TaskText": "The Black Death, a catastrophic bubonic plague pandemic that swept through Europe from 1346 to 1353, remains one of history’s deadliest outbreaks. With an estimated death toll of 50 million people—possibly half of Europe’s 14th-century population—the disease caused widespread devastation. Yersinia pestis, transmitted by fleas and through the air, triggered this unprecedented catastrophe."
+			"Image": "https://www.usu.edu/markdamen/1320hist&civ/slides/06plague/burial.jpg",
+			"TaskText": "The Black Death, a catastrophic bubonic plague pandemic that swept through Europe from 1346 to 1353, remains one of history’s deadliest outbreaks. With an estimated death toll of 50 million people—possibly half of Europe’s 14th-century population—the disease caused widespread devastation. Yersinia pestis, transmitted by fleas and through the air, triggered this unprecedented catastrophe.",
+			"InfoText" : "Plague doctors, physicians contracted by a government to tend to patients infected with plague during an epidemic, especially the plagues in Europe in the Middle Ages. Plague doctors were contracted by a city or town during an outbreak to treat plague patients specifically. The contract would outline the plague doctor’s responsibilities, boundaries, and pay and would often include the obligation to visit neighbourhoods hit hardest by plague and to treat even the poorest of patients who could not otherwise pay."
+
 		},
 		"2": {
 			"Title": "Responses",
 			"Image": "https://cdn.thecollector.com/wp-content/uploads/2021/12/pope-clement-vi-medieval-period.jpg?width=1200&quality=55",
-			"TaskText": "In response to the Black Death, authorities implemented improved sanitation and public health measures. Sanitary systems, clean water supplies, and proper waste disposal helped limit the spread. Protective clothing, quarantine, and social distancing reduced transmission. Innovations in medicine emerged, including rudimentary hospitals and herbal remedies."
+			"TaskText": "In response to the Black Death, authorities implemented improved sanitation and public health measures. Sanitary systems, clean water supplies, and proper waste disposal helped limit the spread. Protective clothing, quarantine, and social distancing reduced transmission. Innovations in medicine emerged, including rudimentary hospitals and herbal remedies.",
+			"InfoText": "In response to the Black Death, authorities implemented improved sanitation and public health measures. Sanitary systems, clean water supplies, and proper waste disposal helped limit the spread. Protective clothing, quarantine, and social distancing reduced transmission. Innovations in medicine emerged, including rudimentary hospitals and herbal remedies."
+
 		},
 		"3": {
 			"Title": "Modern Healthcare Influence",
 			"Image": "https://th.bing.com/th/id/OIP.duPDGFE4umYuPYCOPPcGsAHaE7?rs=1&pid=ImgDetMain",
-			"TaskText": "The Black Death’s impact is still felt in today’s public health strategies. The pandemic's severity underscored the importance of quarantine and isolation, practices that are crucial in managing modern outbreaks like COVID-19. Lessons from the Black Death have also influenced the development of global health systems and protocols, emphasizing rapid response and surveillance. In our interconnected world, these historical insights help guide contemporary efforts to prevent and control pandemics, showing how past crises continue to shape current health practices and policies."
+			"TaskText": "The Black Death’s impact is still felt in today’s public health strategies. The pandemic's severity underscored the importance of quarantine and isolation, practices that are crucial in managing modern outbreaks like COVID-19. Lessons from the Black Death have also influenced the development of global health systems and protocols, emphasizing rapid response and surveillance. In our interconnected world, these historical insights help guide contemporary efforts to prevent and control pandemics, showing how past crises continue to shape current health practices and policies.",
+			"InfoText": "The Black Death’s impact is still felt in today’s public health strategies. The pandemic's severity underscored the importance of quarantine and isolation, practices that are crucial in managing modern outbreaks like COVID-19. Lessons from the Black Death have also influenced the development of global health systems and protocols, emphasizing rapid response and surveillance. In our interconnected world, these historical insights help guide contemporary efforts to prevent and control pandemics, showing how past crises continue to shape current health practices and policies."
+
 		},
 		"4": {
 			"Title": "Artistic Influence",
-			"Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/The_Third_of_May_1808_1814.jpg/1200px-The_Third_of_May_1808_1814.jpg",
-			"TaskText": "The Black Death not only devastated populations but also deeply influenced art and literature of the time. Medieval artists began depicting scenes of death and suffering, with an intense focus on the fragility of human life. Paintings like 'The Triumph of Death' captured the macabre atmosphere. Literature shifted toward themes of morality and salvation, heavily influenced by the pervasive fear of death. The artistic and literary responses to the Black Death reflect the existential crises that shaped the cultural and spiritual landscapes of the Middle Ages."
+			"Image": "https://www.science.org/do/10.1126/science.abc7832/abs/ca_0515_Inequality_leadblackdeath_1280x720.jpg",
+			"TaskText": "The Black Death not only devastated populations but also deeply influenced art and literature of the time. Medieval artists began depicting scenes of death and suffering, with an intense focus on the fragility of human life. Paintings like 'The Triumph of Death' captured the macabre atmosphere. Literature shifted toward themes of morality and salvation, heavily influenced by the pervasive fear of death. The artistic and literary responses to the Black Death reflect the existential crises that shaped the cultural and spiritual landscapes of the Middle Ages.",
+			"InfoText": "The Black Death not only devastated populations but also deeply influenced art and literature of the time. Medieval artists began depicting scenes of death and suffering, with an intense focus on the fragility of human life. Paintings like 'The Triumph of Death' captured the macabre atmosphere. Literature shifted toward themes of morality and salvation, heavily influenced by the pervasive fear of death. The artistic and literary responses to the Black Death reflect the existential crises that shaped the cultural and spiritual landscapes of the Middle Ages."
 		},
 		"5": {
 			"Title": "Population and Labour Decline",
 			"Image": "https://gdb.rferl.org/78A14CC4-C8FB-4524-9C4D-C7B6616FBF05_cx0_cy2_cw0_w1200_r1_s.jpg",
-			"TaskText": "The Black Death significantly reduced Europe's population, leading to widespread labor shortages and shifting economic dynamics. As you explore this section, consider how these changes affected peasants and laborers, the rise of new economic opportunities, and the decline of feudal structures. Answer the following questions to understand the lasting impact of the Black Death on population and labor conditions across Europe."
+			"TaskText": "The Black Death significantly reduced Europe's population, leading to widespread labor shortages and shifting economic dynamics. As you explore this section, consider how these changes affected peasants and laborers, the rise of new economic opportunities, and the decline of feudal structures. Answer the following questions to understand the lasting impact of the Black Death on population and labor conditions across Europe.",
+			"InfoText": "The Black Death significantly reduced Europe's population, leading to widespread labor shortages and shifting economic dynamics. As you explore this section, consider how these changes affected peasants and laborers, the rise of new economic opportunities, and the decline of feudal structures. Answer the following questions to understand the lasting impact of the Black Death on population and labor conditions across Europe."
+
 		}
 
 	}
