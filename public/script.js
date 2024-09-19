@@ -118,7 +118,7 @@ function LoadHomepageSubjects() {
 			var div = document.createElement("div")
 			div.className = "subjectsquare standardcontrast changecontrast"
 			div.id = "Square" + n
-			if (Sub["Functions"] = "true") {
+			if (Sub["Functions"] == "true") {
 				div.setAttribute("onclick", "TaskSelect('" + subject + "')")
 			}
 			var Image = document.createElement("img")
@@ -188,7 +188,7 @@ function LoadTasks() {
 			var Div = document.createElement("div")
 			Div.className = "subjectsquare standardcontrast changecontrast"
 			Div.id = Catagories[x]["Subjects"][y - 1]
-			if (Sub["Functions"] = "true") {
+			if (Sub["Functions"] == "true") {
 				Div.setAttribute("onclick", "TaskSelect('" + subject + "')")
 			}
 			MainParent.appendChild(Div)
@@ -257,7 +257,7 @@ function LoadInfo() {
 			var Div = document.createElement("div")
 			Div.className = "subjectsquare standardcontrast changecontrast"
 			Div.id = Catagories[x]["Subjects"][y - 1]
-			if (Sub["Functions"] = "true") {
+			if (Sub["Functions"] == "true") {
 				Div.setAttribute("onclick", "InfoSelect('" + subject + "')")
 			}
 			MainParent.appendChild(Div)
