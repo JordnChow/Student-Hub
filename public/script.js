@@ -188,7 +188,9 @@ function LoadTasks() {
 			var Div = document.createElement("div")
 			Div.className = "subjectsquare standardcontrast changecontrast"
 			Div.id = Catagories[x]["Subjects"][y - 1]
-			Div.setAttribute("onclick", "TaskSelect('" + subject + "')")
+			if (Sub["Functions"] = "true") {
+				Div.setAttribute("onclick", "TaskSelect('" + subject + "')")
+			}
 			MainParent.appendChild(Div)
 			var Parent = document.getElementById(Catagories[x]["Subjects"][y - 1])
 
