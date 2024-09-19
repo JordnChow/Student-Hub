@@ -762,31 +762,31 @@ const TheBlackDeath = {
 
 const TheRomanEmpire = {
 	"Name": "The Roman Empire",
-	"Image": "Images/Roman Colosseum.png"
+	"Image": "Images/Roman Colosseum.png",
 	"Functions": false,
 }
 
 const AncientEgypt = {
 	"Name": "Ancient Egypt",
-	"Image": "Images/Great Pyramids.png"
+	"Image": "Images/Great Pyramids.png",
 	"Functions": false,
 }
 
 const AncientJapan = {
 	"Name": "Ancient Japan",
-	"Image": "Images/Torii Gate.png"
+	"Image": "Images/Torii Gate.png",
 	"Functions": false,
 }
 
 const AncientChina = {
 	"Name": "Ancient China",
-	"Image": "Images/Chinese Dragon.png"
+	"Image": "Images/Chinese Dragon.png",
 	"Functions": false,
 }
 
 const TheBritishEmpire = {
 	"Name": "The British Empire",
-	"Image": "Images/Crown.png"
+	"Image": "Images/Crown.png",
 	"Functions": false,
 }
 
@@ -807,6 +807,7 @@ const Chemistry = {
 const Sacraments = {
 	"Name": "Sacraments",
 	"Image": "Images/Sacraments.png",
+	"Functions": false,
 	"MainSubject": "Religion",
 	"Ntopic": 2,
 	"Topics": {
