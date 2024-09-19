@@ -253,11 +253,13 @@ function LoadInfo() {
 			var Sub;
 			var subject = Catagories[x]["Subjects"][y - 1]
 			eval('Sub=' + subject + ';');
-
+		
 			var Div = document.createElement("div")
 			Div.className = "subjectsquare standardcontrast changecontrast"
 			Div.id = Catagories[x]["Subjects"][y - 1]
-			Div.setAttribute("onclick", "InfoSelect('" + subject + "')")
+			if (Sub["Functions"] = "true") {
+				Div.setAttribute("onclick", "InfoSelect('" + subject + "')")
+			}
 			MainParent.appendChild(Div)
 			var Parent = document.getElementById(Catagories[x]["Subjects"][y - 1])
 
