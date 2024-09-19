@@ -118,8 +118,9 @@ function LoadHomepageSubjects() {
 			var div = document.createElement("div")
 			div.className = "subjectsquare standardcontrast changecontrast"
 			div.id = "Square" + n
-			div.setAttribute("onclick", "TaskSelect('" + subject + "')")
-
+			if (Sub["Functions"] = true) {
+				div.setAttribute("onclick", "TaskSelect('" + subject + "')")
+			}
 			var Image = document.createElement("img")
 			Image.src = Sub["Image"]
 			Image.classname = "center bottom"
@@ -726,6 +727,7 @@ const Catagories = {
 
 const TheBlackDeath = {
 	"Name": "The Black Death",
+	"Functions": true,
 	"Ntopic": 5,
 	"Image": "Images/The Black Death.png",
 	"Topics": {
@@ -761,31 +763,37 @@ const TheBlackDeath = {
 const TheRomanEmpire = {
 	"Name": "The Roman Empire",
 	"Image": "Images/Roman Colosseum.png"
+	"Functions": false,
 }
 
 const AncientEgypt = {
 	"Name": "Ancient Egypt",
 	"Image": "Images/Great Pyramids.png"
+	"Functions": false,
 }
 
 const AncientJapan = {
 	"Name": "Ancient Japan",
 	"Image": "Images/Torii Gate.png"
+	"Functions": false,
 }
 
 const AncientChina = {
 	"Name": "Ancient China",
 	"Image": "Images/Chinese Dragon.png"
+	"Functions": false,
 }
 
 const TheBritishEmpire = {
 	"Name": "The British Empire",
 	"Image": "Images/Crown.png"
+	"Functions": false,
 }
 
 const Chemistry = {
 	"Name": "Chemistry",
 	"Image": "Images/Chemistry.png",
+	"Functions": false,
 	"Ntopic": 1,
 	"Topics": {
 		"1": {
