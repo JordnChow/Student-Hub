@@ -5,22 +5,6 @@ function on() {
 function off() {
 	document.getElementById("overlay").style.display = "none";
 }
-//Sidebar
-function OpenSidebarPartial() {
-	document.getElementById("SidebarPartial").style.display = "block";
-}
-
-function CloseSidebarPartial() {
-	document.getElementById("SidebarPartial").style.display = "none";
-}
-
-function OpenSidebarFull() {
-	document.getElementById("SidebarFull").style.display = "block";
-}
-
-function CloseSidebarFull() {
-	document.getElementById("SidebarFull").style.display = "none";
-}
 
 function NameChange() {
 	localStorage.setItem("Name", prompt("Please Enter your new Name"))
