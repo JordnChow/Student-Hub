@@ -35,9 +35,9 @@ function ChangeColour() {
 	if (!oldcolour) {
 		oldcolour = "standard"
 	}
-	let newclass = [colour + "text", colour + "contrast", colour + "dark", colour + "nav", colour + "scrollbar", colour + "main", colour + "light"]
-	let changeclass = ["changetext", "changecontrast", "changedark", "changenav", "changescrollbar", "changemain", "changelight"]
-	let oldclass = [oldcolour + "text", oldcolour + "contrast", oldcolour + "dark", oldcolour + "nav", oldcolour + "scrollbar", oldcolour + "main", oldcolour + "light"]
+	let newclass = [colour + "text", colour + "contrast", colour + "dark", colour + "nav", colour + "scrollbar", colour + "main", colour + "light", colour + "hover"]
+	let changeclass = ["changetext", "changecontrast", "changedark", "changenav", "changescrollbar", "changemain", "changelight", "changehover"]
+	let oldclass = [oldcolour + "text", oldcolour + "contrast", oldcolour + "dark", oldcolour + "nav", oldcolour + "scrollbar", oldcolour + "main", oldcolour + "light", oldcolour + "hover"]
 
 	let x = 0
 	while (x != (newclass.length)) {
