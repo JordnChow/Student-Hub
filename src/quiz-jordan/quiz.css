@@ -109,7 +109,6 @@ li {
 }
 
 /* Buttons */
-.button-next,
 .button-finish,
 .button-ai {
     margin-top: 18rem;
@@ -124,7 +123,6 @@ li {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-.button-next:hover,
 .button-finish:hover,
 .button-ai:hover {
     background-color: orange;
