@@ -8,6 +8,10 @@
 	background-color: #f9cb9c;	/*Contrast*/
 }
 
+.standardhover:hover {
+	background-color: #f9cb9c;	/*Contrast*/
+}
+
 .standarddark {
 	background-color: #a2c4c9; /*Dark*/
 }
@@ -64,6 +68,10 @@
 }
 
 .coolcontrast {
+	background-color: #008080;	/*Contrast*/
+}
+
+.coolhover:hover {
 	background-color: #008080;	/*Contrast*/
 }
 
@@ -126,6 +134,10 @@
 	background-color: #dc143c;	/*Contrast*/
 }
 
+.warmhover:hover {
+	background-color: #dc143c;	/*Contrast*/
+}
+
 .warmdark {
 	background-color: #ff5555ff; /*Dark*/
 }
@@ -182,6 +194,10 @@
 }
 
 .neutralcontrast {
+	background-color: #b09171ff;	/*Contrast*/
+}
+
+.neutralhover:hover {
 	background-color: #b09171ff;	/*Contrast*/
 }
 
@@ -245,6 +261,10 @@
 	background-color: #ffd966ff;
 }
 
+.darkhover:hover {
+	background-color: #ffd966ff;	/*Contrast*/
+}
+
 .darkdark {
 	background-color: #7f7182ff;
 }
@@ -303,6 +323,10 @@
 
 .highcontrastcontrast {
 	background-color: #00ecffff;
+}
+
+.highcontrasthover:hover {
+	background-color: #00ecffff;	/*Contrast*/
 }
 
 .highcontrastdark {
@@ -365,6 +389,10 @@
 	background-color: #b5aea5ff;
 }
 
+.lowcontrasthover:hover {
+	background-color: #b5aea5ff;	/*Contrast*/
+}
+
 .lowcontrastdark {
 	background-color: #9f9f9fff;
 }
@@ -422,6 +450,10 @@
 
 .Sacramentscontrast {
 	background-color: #FF7FAE;
+}
+
+.Sacramentshover:hover {
+	background-color: #FF7FAE;	/*Contrast*/
 }
 
 .Sacramentsdark {
