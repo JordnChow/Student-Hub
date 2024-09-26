@@ -64,7 +64,6 @@ main {
 }
 
 .answer-button:hover {
-    background: orange;
     transform: scale(1.01);
 }
 
