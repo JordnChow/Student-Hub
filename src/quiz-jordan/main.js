@@ -184,7 +184,6 @@ function checkQuestion() {
     } else {
         nextButton.innerHTML = 'Check Answer';
         nextQuestion();
-
     }
 }
 
@@ -201,7 +200,6 @@ function showSlide(n) {
 
 function nextQuestion() {
     changeImage()
-
     quizNumber.innerHTML = `Question ${currentSlide + 2}:`
     progressBar.style.width = `${(currentSlide + 1) / questions.length * 100}%`;
     showSlide(currentSlide + 1);
@@ -218,11 +216,21 @@ function finishQuiz() {
 }
 
 function displayResults() {
+    let percent = Math.floor(numCorrect / questions.length * 100);
+    if (percent === Infinity) {
+        percent = 0;
+    }
     resultsContainer.style.display = 'block';
+    const img = document.getElementById("quiz-images");
+    img.style.display = 'none'
+    document.getElementById("quiz-container").style.border = 'none'
+    document.getElementById("main").style.width = '50%'
     displayPercentage();
     displayTime()
     numCorrect = 0;
+    localStorage.getItem("GeneralPercent")? localStorage.setItem("GeneralPercent", (Number(localStorage.getItem("GeneralPercent")) + percent)/2) : localStorage.setItem("GeneralPercent", percent)
 }
+
 
 function displayPercentage() {
     const percentText = document.querySelector(".percent-stat");
@@ -269,7 +277,7 @@ async function displayAIResponse() {
         return;
     }
     displayAnimation();
-    const response = await fetchAI(`I got these questions wrong, can you provide help on them? Here are the questions: ${userIncorrect.map(q => q.question).join(", ")}. Give me the question then give me an answer, in the answer provide a detailed explanation if you deem it necessary to. Don't provide any greetings. Only give the requested information`)
+    const response = await fetchAI(`I got these questions wrong, can you provide help on them? Here are the questions: ${userIncorrect.map(q => q.question).join(", ")}. Give me the question then give me an answer. Don't provide any greetings. Only give the requested information. Bold the questions`)
     removeAnimation();
     aiResponse.style.display = "block";
     aiResponse.innerHTML = response;

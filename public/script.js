@@ -107,7 +107,7 @@ function LoadHomepageSubjects() {
 	HideLocked()
 	document.getElementById("HomepageName").textContent = localStorage.getItem("Name")
 	document.getElementById("Name").textContent = localStorage.getItem("Name")
-	document.getElementById("Accuracy").textContent = "Accuracy: " + localStorage.getItem("GeneralPercent") + "%"
+	document.getElementById("Accuracy").textContent = localStorage.getItem('GeneralPercent')? "Accuracy: " + localStorage.getItem("GeneralPercent") + "%" : "No quizzes completed yet!" // Added this here to fix the null accuracy problem. In my quiz I will add to the accuracies. - Jordan
 	var n = 1
 	var MainParent = document.getElementById("MainParent")
 	while (n != 4) {

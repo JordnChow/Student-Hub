@@ -12,7 +12,7 @@ async function fetchAI(prompt) {
         const text = marked(response.text());
         return text;
     } catch (error) {
-        return `Error fetching data ${data}`
+        return `Error fetching data, try checking your connection. Advanced details: ${data}`
     }
 }
 
