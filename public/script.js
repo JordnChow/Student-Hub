@@ -5,22 +5,6 @@ function on() {
 function off() {
 	document.getElementById("overlay").style.display = "none";
 }
-//Sidebar
-function OpenSidebarPartial() {
-	document.getElementById("SidebarPartial").style.display = "block";
-}
-
-function CloseSidebarPartial() {
-	document.getElementById("SidebarPartial").style.display = "none";
-}
-
-function OpenSidebarFull() {
-	document.getElementById("SidebarFull").style.display = "block";
-}
-
-function CloseSidebarFull() {
-	document.getElementById("SidebarFull").style.display = "none";
-}
 
 function NameChange() {
 	localStorage.setItem("Name", prompt("Please Enter your new Name"))
@@ -51,9 +35,9 @@ function ChangeColour() {
 	if (!oldcolour) {
 		oldcolour = "standard"
 	}
-	let newclass = [colour + "text", colour + "contrast", colour + "dark", colour + "nav", colour + "scrollbar", colour + "main", colour + "light"]
-	let changeclass = ["changetext", "changecontrast", "changedark", "changenav", "changescrollbar", "changemain", "changelight"]
-	let oldclass = [oldcolour + "text", oldcolour + "contrast", oldcolour + "dark", oldcolour + "nav", oldcolour + "scrollbar", oldcolour + "main", oldcolour + "light"]
+	let newclass = [colour + "text", colour + "contrast", colour + "dark", colour + "nav", colour + "scrollbar", colour + "main", colour + "light", colour + "hover"]
+	let changeclass = ["changetext", "changecontrast", "changedark", "changenav", "changescrollbar", "changemain", "changelight", "changehover"]
+	let oldclass = [oldcolour + "text", oldcolour + "contrast", oldcolour + "dark", oldcolour + "nav", oldcolour + "scrollbar", oldcolour + "main", oldcolour + "light", oldcolour + "hover"]
 
 	let x = 0
 	while (x != (newclass.length)) {
@@ -118,7 +102,7 @@ function LoadHomepageSubjects() {
 			var div = document.createElement("div")
 			div.className = "subjectsquare standardcontrast changecontrast"
 			div.id = "Square" + n
-			if (Sub["Functions"] = "true") {
+			if (Sub["Functions"] == "true") {
 				div.setAttribute("onclick", "TaskSelect('" + subject + "')")
 			}
 			var Image = document.createElement("img")
@@ -188,7 +172,9 @@ function LoadTasks() {
 			var Div = document.createElement("div")
 			Div.className = "subjectsquare standardcontrast changecontrast"
 			Div.id = Catagories[x]["Subjects"][y - 1]
-			Div.setAttribute("onclick", "TaskSelect('" + subject + "')")
+			if (Sub["Functions"] == "true") {
+				Div.setAttribute("onclick", "TaskSelect('" + subject + "')")
+			}
 			MainParent.appendChild(Div)
 			var Parent = document.getElementById(Catagories[x]["Subjects"][y - 1])
 
@@ -251,11 +237,13 @@ function LoadInfo() {
 			var Sub;
 			var subject = Catagories[x]["Subjects"][y - 1]
 			eval('Sub=' + subject + ';');
-
+		
 			var Div = document.createElement("div")
 			Div.className = "subjectsquare standardcontrast changecontrast"
 			Div.id = Catagories[x]["Subjects"][y - 1]
-			Div.setAttribute("onclick", "InfoSelect('" + subject + "')")
+			if (Sub["Functions"] == "true") {
+				Div.setAttribute("onclick", "InfoSelect('" + subject + "')")
+			}
 			MainParent.appendChild(Div)
 			var Parent = document.getElementById(Catagories[x]["Subjects"][y - 1])
 

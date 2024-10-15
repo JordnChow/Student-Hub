@@ -3,6 +3,7 @@
 
 <head>
     <link href="./quiz.css" rel="stylesheet" type="text/css">
+    <link href="../../public/palletes.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="../Images/LowRes Favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +13,7 @@
     <script src="https://kit.fontawesome.com/67344c76b3.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="ChangeColour()">
     <div class="navbar">
         <a href="../../public/index.html" class="returnHome">
             <button class="returnHome">
@@ -70,7 +71,7 @@
                     </div>
                 </div>
                 <div class="buttons-prev-next">
-                    <button id="next" class="button-next">Check Answer</button>
+                    <button id="next" class="button-next changedark standarddark changehover standardhover">Check Answer</button>
                     <button id="finish" style="display: none;" class="button-finish">Finish</button>
                 </div>
             </div>
@@ -84,6 +85,7 @@
         }
       </script>
     <script type="module" src="./main.js"></script>
+    <script src="../../public/script.js">
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </body>
 

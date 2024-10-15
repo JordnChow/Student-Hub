@@ -74,7 +74,7 @@ function buildQuiz() {
         for (const letter in currentQuestion.answers) {
             answers.push(
                 `<li>
-                        <button class="answer-button" data-question="${questionNumber}" data-answer="${letter}" id="${questionType}">
+                        <button class="answer-button changedark standarddark changehover standardhover" data-question="${questionNumber}" data-answer="${letter}" id="${questionType}">
                             ${letter} : ${currentQuestion.answers[letter]}
                             <i class="fa fa-times" aria-hidden="true" id="${questionNumber + 1}${letter}"></i>
                         </button>

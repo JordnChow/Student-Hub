@@ -9,20 +9,6 @@
     font-family: 'Raleway', sans-serif;
 }
 
-#overlay {
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-}
-
 body {
     display: flex;
     justify-content: center;
@@ -71,7 +57,6 @@ main {
 .answer-button {
     margin-top: 0;
     width: 100%;
-    background: #a2c4c9;
     text-align: left;
     padding: 10px;
     border-radius: 10px;
@@ -79,7 +64,6 @@ main {
 }
 
 .answer-button:hover {
-    background: orange;
     transform: scale(1.01);
 }
 
@@ -139,7 +123,6 @@ li {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
 }
-
 .button-next:hover,
 .button-finish:hover,
 .button-ai:hover {
