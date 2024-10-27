@@ -223,7 +223,7 @@ function LoadTasks() {
 				Div.setAttribute("onclick", "TaskSelect('" + subject + "')")
 				Div.className = "subjectsquare standardcontrast changecontrast"
 			} else {
-				div.setAttribute("onclick", "FreeUnavaliable()")
+				Div.setAttribute("onclick", "FreeUnavaliable()")
 				Div.className = "subjectsquare standarddark changedark"
 			}
 			MainParent.appendChild(Div)
