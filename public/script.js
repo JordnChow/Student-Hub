@@ -59,6 +59,47 @@ function ChangeColour() {
 	} else {
 		document.body.style.backgroundColor = localStorage.getItem("BackgroundColour")
 	}
+	CheckLogIn()
+}
+
+function CheckLogIn() {
+	if (!sessionStorage.getItem("LoggedIn")) {
+		sessionStorage.setItem("Redirect", window.location.href)
+		window.location.replace("LogIn.html")
+	}
+}
+
+function LogIn() {
+	if (document.getElementById("Email").value && document.getElementById("password").value) {
+		if (document.getElementById("Email").value == localStorage.getItem("Email") && document.getElementById("password").value == localStorage.getItem("Password")) {
+			sessionStorage.setItem("LoggedIn", "True")
+			if (sessionStorage.getItem("Redirect")) {
+				window.location.href = sessionStorage.getItem("Redirect")
+			} else {
+				window.location.href = "index.html"
+			}
+		} else {
+			document.getElementById("alert").textContent = "Incorrect Email / Password"
+		}
+	} else {
+		document.getElementById("alert").textContent = "Please Fill in Both Fields"
+	}
+}
+
+function SignUp() {
+	if (document.getElementById("Email").value && document.getElementById("Password").value) {
+		localStorage.setItem("Email", document.getElementById("Email").value)
+		localStorage.setItem("Password", document.getElementById("Password").value)
+		document.getElementById("alert").textContent = "Account Created. Redirecting..."
+		setTimeout(window.location.href = "LogIn.html", 20000)
+	} else {
+		document.getElementById("alert").textContent = "Please Fill in Both Fields"
+	}
+}
+
+function LogOut() {
+	sessionStorage.setItem("LoggedIn", "")
+	CheckLogIn()
 }
 
 function HideLocked() {
