@@ -141,10 +141,13 @@ function LoadHomepageSubjects() {
 			var subject = localStorage.getItem("subject" + n);
 			eval('Sub=' + subject + ';');
 			var div = document.createElement("div")
-			div.className = "subjectsquare standardcontrast changecontrast"
 			div.id = "Square" + n
 			if (Sub["Functions"] == "true") {
 				div.setAttribute("onclick", "TaskSelect('" + subject + "')")
+				div.className = "subjectsquare standardcontrast changecontrast"
+			} else {
+				div.setAttribute("onclick", alert("Not Avaliable With a Free Account"))
+				div.className = "subjectsquare standardcontrast changecontrast paidaccount"
 			}
 			var Image = document.createElement("img")
 			Image.src = Sub["Image"]
