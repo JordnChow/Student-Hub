@@ -218,10 +218,13 @@ function LoadTasks() {
 			eval('Sub=' + subject + ';');
 
 			var Div = document.createElement("div")
-			Div.className = "subjectsquare standardcontrast changecontrast"
 			Div.id = Catagories[x]["Subjects"][y - 1]
 			if (Sub["Functions"] == "true") {
 				Div.setAttribute("onclick", "TaskSelect('" + subject + "')")
+				Div.className = "subjectsquare standardcontrast changecontrast"
+			} else {
+				div.setAttribute("onclick", "FreeUnavaliable()")
+				Div.className = "subjectsquare standarddark changedark"
 			}
 			MainParent.appendChild(Div)
 			var Parent = document.getElementById(Catagories[x]["Subjects"][y - 1])
@@ -287,10 +290,13 @@ function LoadInfo() {
 			eval('Sub=' + subject + ';');
 		
 			var Div = document.createElement("div")
-			Div.className = "subjectsquare standardcontrast changecontrast"
 			Div.id = Catagories[x]["Subjects"][y - 1]
 			if (Sub["Functions"] == "true") {
 				Div.setAttribute("onclick", "InfoSelect('" + subject + "')")
+				Div.className = "subjectsquare standardcontrast changecontrast"
+			} else {
+				Div.setAttribute("onclick", "FreeUnavaliable()")
+				Div.className = "subjectsquare standarddark changedark"
 			}
 			MainParent.appendChild(Div)
 			var Parent = document.getElementById(Catagories[x]["Subjects"][y - 1])
