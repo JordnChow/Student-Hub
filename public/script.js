@@ -127,6 +127,10 @@ function UnlockColour(subject) {
 	}
 }
 
+function FreeUnavaliable() {
+	alert("Not Avaliable With a Free Account")
+}
+
 //Homepage
 function LoadHomepageSubjects() {
 	HideLocked()
@@ -146,7 +150,7 @@ function LoadHomepageSubjects() {
 				div.setAttribute("onclick", "TaskSelect('" + subject + "')")
 				div.className = "subjectsquare standardcontrast changecontrast"
 			} else {
-				div.setAttribute("onclick", alert("Not Avaliable With a Free Account"))
+				div.setAttribute("onclick", "FreeUnavaliable()")
 				div.className = "subjectsquare standarddark changedark"
 			}
 			var Image = document.createElement("img")
