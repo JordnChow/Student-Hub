@@ -147,7 +147,7 @@ function LoadHomepageSubjects() {
 				div.className = "subjectsquare standardcontrast changecontrast"
 			} else {
 				div.setAttribute("onclick", alert("Not Avaliable With a Free Account"))
-				div.className = "subjectsquare standardcontrast changecontrast paidaccount"
+				div.className = "subjectsquare standarddark changedark"
 			}
 			var Image = document.createElement("img")
 			Image.src = Sub["Image"]
