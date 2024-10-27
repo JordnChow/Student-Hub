@@ -344,6 +344,62 @@ t {
 	font-size: 36px;
 	font-family: 'Segoe UI';
 }
+
+/*Log In*/
+.loginside {
+	width: 50%;
+	float: left;
+	background-color: #e6eff1;
+	height: 100%;
+	text-align: center;
+	padding: 16% 32px 100%;
+	align-items: center
+}
+
+#LoginTitle {
+	color: #f9cb9c;
+	font-size: 128px;
+	padding: 16px;
+}
+
+input {
+	border-radius: 64px;
+	border-color: white;
+	background-color: white;
+	text-align: center;
+	height: 48px;
+	margin: 8px;
+	font-size: 16px;
+	width: 512px;
+	font-family:Comfortaa;
+	color: #a2c4c9;
+}
+
+#inputsubtext {
+	color: #a2c4c9 !important;
+	font-family:Montserrat !important;
+}
+
+#inputsubtext a {
+	color: #a2c4c9 !important;
+	font-family:Montserrat !important;
+	padding: 8px 0px
+}
+
+#loginbutton {
+	border-radius: 32px;
+	background-color: #f9cb9c;
+	height: 36px;
+	width: 400px;
+	font-family:Comfortaa;
+	font-size: 16px;
+	margin: 8px
+}
+
+#loginbutton:hover {
+	box-shadow: 2px 2px grey
+}
+
 /*Pallete Overlay*/
 .overlay {
 	position: fixed; /* Sit on top of the page content */
