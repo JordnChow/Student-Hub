@@ -87,13 +87,31 @@ function LogIn() {
 }
 
 function SignUp() {
+	const Alert = document.getElementById("alert")
 	if (document.getElementById("Email").value && document.getElementById("Password").value) {
-		localStorage.setItem("Email", document.getElementById("Email").value)
-		localStorage.setItem("Password", document.getElementById("Password").value)
-		document.getElementById("alert").textContent = "Account Created. Redirecting..."
-		setTimeout(window.location.href = "LogIn.html", 20000)
+		const Email = document.getElementById("Email").value
+		const Password = document.getElementById("Password").value
+		if (/\S+@\S+\.\S+/.test(Email) {
+			if (Password.length > 7) {
+				if (Password.match(/\d+/g)) {
+					if (/[A-Z]/.test(Password)) {
+						localStorage.setItem("Email", document.getElementById("Email").value)
+						localStorage.setItem("Password", document.getElementById("Password").value)
+						Alert.textContent = "Account Created. Redirecting..."
+						setTimeout(window.location.href = "LogIn.html", 20000)
+					} else {
+						Alert.textContent = "Password must contain a Capital Letter"
+					}
+				} else {
+					Alert.textContent = "Password Must Contain a Number"
+				}
+			} else {
+				Alert.textContent = "Password Must be At least 8 Characters"
+		} else {
+			Alert.textContent = "Please Enter a Valid Email"
+		}
 	} else {
-		document.getElementById("alert").textContent = "Please Fill in Both Fields"
+		Alert.textContent = "Please Fill in Both Fields"
 	}
 }
 
