@@ -91,7 +91,7 @@ function SignUp() {
 	if (document.getElementById("Email").value && document.getElementById("Password").value) {
 		const Email = document.getElementById("Email").value
 		const Password = document.getElementById("Password").value
-		if (/\S+@\S+\.\S+/.test(Email) {
+		if (/\S+@\S+\.\S+/.test(Email)) {
 			if (Password.length > 7) {
 				if (Password.match(/\d+/g)) {
 					if (/[A-Z]/.test(Password)) {
