@@ -107,6 +107,7 @@ function SignUp() {
 				}
 			} else {
 				Alert.textContent = "Password Must be At least 8 Characters"
+			}
 		} else {
 			Alert.textContent = "Please Enter a Valid Email"
 		}
