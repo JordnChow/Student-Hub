@@ -86,30 +86,52 @@ function LogIn() {
 	}
 }
 
+function LoadSignUp() {
+	sessionStorage.setItem("ReCaptcha", "No")
+	document.getElementById("my_captcha_form").addEventListener("submit",function(evt)
+	  {
+	  
+	  var response = grecaptcha.getResponse();
+	  if(response.length == 0) 
+	  { 
+	    //reCaptcha not verified
+	    document.getElementById("alert").textcontent = "Please Complete the ReCaptcha"
+	    evt.preventDefault();
+	    return false;
+	  }
+	  sessionStorage.setItem("ReCaptcha", "Yes")
+	  
+	});
+}
+
 function SignUp() {
 	const Alert = document.getElementById("alert")
 	if (document.getElementById("Email").value && document.getElementById("Password").value) {
-		const Email = document.getElementById("Email").value
-		const Password = document.getElementById("Password").value
-		if (/\S+@\S+\.\S+/.test(Email)) {
-			if (Password.length > 7) {
-				if (Password.match(/\d+/g)) {
-					if (/[A-Z]/.test(Password)) {
-						localStorage.setItem("Email", document.getElementById("Email").value)
-						localStorage.setItem("Password", document.getElementById("Password").value)
-						Alert.textContent = "Account Created. Redirecting..."
-						setTimeout(window.location.href = "LogIn.html", 20000)
+		if (sessionStorage.getItem("ReCaptcha") == "Yes") {
+			const Email = document.getElementById("Email").value
+			const Password = document.getElementById("Password").value
+			if (/\S+@\S+\.\S+/.test(Email)) {
+				if (Password.length > 7) {
+					if (Password.match(/\d+/g)) {
+						if (/[A-Z]/.test(Password)) {
+							localStorage.setItem("Email", document.getElementById("Email").value)
+							localStorage.setItem("Password", document.getElementById("Password").value)
+							Alert.textContent = "Account Created. Redirecting..."
+							setTimeout(window.location.href = "LogIn.html", 20000)
+						} else {
+							Alert.textContent = "Password must contain a Capital Letter"
+						}
 					} else {
-						Alert.textContent = "Password must contain a Capital Letter"
+						Alert.textContent = "Password Must Contain a Number"
 					}
 				} else {
-					Alert.textContent = "Password Must Contain a Number"
+					Alert.textContent = "Password Must be At least 8 Characters"
 				}
 			} else {
-				Alert.textContent = "Password Must be At least 8 Characters"
+				Alert.textContent = "Please Enter a Valid Email"
 			}
 		} else {
-			Alert.textContent = "Please Enter a Valid Email"
+			Alert.textContent = "Please Complete the ReCaptcha"
 		}
 	} else {
 		Alert.textContent = "Please Fill in Both Fields"
