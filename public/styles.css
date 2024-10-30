@@ -400,7 +400,7 @@ input {
 	box-shadow: 2px 2px grey
 }
 
-/*Pallete Overlay*/
+/*Overlay*/
 .overlay {
 	position: fixed; /* Sit on top of the page content */
 	display: none; /* Hidden by default */
@@ -423,6 +423,13 @@ input {
 	display: inline-block;
 	padding: 16px;
 	margin: 32px
+}
+
+.overlayflexible {
+	border-radius: 32px;
+	padding: 16px;
+	margin: 32px;
+	display: inline-block;
 }
 
 .overlayboxcontainer {
