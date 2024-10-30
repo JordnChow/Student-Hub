@@ -95,10 +95,10 @@ function LoadSignUp() {
 	  if(response.length == 0) 
 	  { 
 	    //reCaptcha not verified
-	    document.getElementById("alert").textcontent = "Please Complete the ReCaptcha"
 	    evt.preventDefault();
 	    return false;
 	  }
+	  //reCaptch Verified
 	  sessionStorage.setItem("ReCaptcha", "Yes")
 	  
 	});
@@ -107,6 +107,7 @@ function LoadSignUp() {
 function SignUp() {
 	const Alert = document.getElementById("alert")
 	if (document.getElementById("Email").value && document.getElementById("Password").value) {
+		document.getElementById("my_captcha_form").submit()
 		if (sessionStorage.getItem("ReCaptcha") == "Yes") {
 			const Email = document.getElementById("Email").value
 			const Password = document.getElementById("Password").value
