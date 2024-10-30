@@ -111,12 +111,13 @@ function SignUp() {
 		var response = grecaptcha.getResponse();
 		if(response.length == 0) 
 		{ 
-		//reCaptcha not verified
-		evt.preventDefault();
-		return false;
+			//reCaptcha not verified
+			evt.preventDefault();
+			return false;
+		} else {
+			//reCaptch Verified
+			sessionStorage.setItem("ReCaptcha", "Yes")
 		}
-		//reCaptch Verified
-		sessionStorage.setItem("ReCaptcha", "Yes")
 		if (sessionStorage.getItem("ReCaptcha") == "Yes") {
 			const Email = document.getElementById("Email").value
 			const Password = document.getElementById("Password").value
