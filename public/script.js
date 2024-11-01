@@ -22,6 +22,17 @@ function NameChange() {
 	}
 }
 
+function IconChange() {
+	const IconValue = document.getElementById("iconURL").value
+	if (NameValue == "") {
+		document.getElementById("IconAlert").textContent = "Please Enter a New Icon"
+	} else {
+		localStorage.setItem("Icon", IconValue)
+		document.getElementById("MainProPic").src = NameValue
+		CloseOverlay()
+	}
+}
+
 //Colour Changing
 function SetColour(Colour) {
 	let old = localStorage.getItem("Colour")
