@@ -41,7 +41,8 @@
 					<div onClick="CloseOverlay()"><i class="fa fa-close" style="font-size: 32px; float: left"></i></div><br><br>
 					<h2>Change Profile Icon</h2><br><br>
 					<input type="text" id="NewName" placeholder="Insert New Name Here"><br>
-					<button class="standardcontrast changecontrast OverlayButton" id="ChangeNameButton">Change Icon</button>
+					<t id="NameAlert"></t><br>
+					<button class="standardcontrast changecontrast OverlayButton" id="ChangeNameButton" onclick="NameChange()">Change Icon</button>
 				</div>
 			</div>
 		</div>
@@ -67,7 +68,7 @@
 						<t style="fontsize:16px; margin: 20px">Year 7 Student</t><br>
 						<t style="fontsize:16px; margin: 20px" id="Accuracy">Accuracy: </t><br>
 						<t style="fontsize:16px; margin: 20px">Free Account</t><br><br><br><br>
-						<a onclick="NameChange()"><h3>Change Name</h3><br></a>
+						<a onclick="OpenOverlay('ChangeName')"><h3>Change Name</h3><br></a>
 						<a onclick="OpenOverlay('PalleteBox')"><h3>Change Pallete</h3><br></a>
 						<a onclick="OpenOverlay('ChangeIcon')"><h3>Change Icon</h3><br></a>
 						<a onclick="LogOut()"><h3>Log Out</h3></a>
