@@ -11,7 +11,7 @@ function CloseOverlay() {
 }
 
 function NameChange() {
-	const NameValue = document.getElementById("NewName").value
+	const NameValue === document.getElementById("NewName").value
 	if (NameValue == "") {
 		document.getElementById("NameAlert").textContent = "Please Enter a New Name"
 	} else {
