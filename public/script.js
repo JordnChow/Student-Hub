@@ -11,12 +11,14 @@ function CloseOverlay() {
 }
 
 function NameChange() {
-	localStorage.setItem("Name", prompt("Please Enter your new Name"))
-	if (!localStorage.getItem("Name")) {
-		localStorage.setItem("Name", "John Doe")
+	const NameValue == document.getElementById("NewName").value
+	if (NameValue == "") {
+		document.getElementById("NameAlert").textContent = "Please Enter a New Name"
+	} else {
+		localStorage.setItem("Name", NameValue)
+		document.getElementById("HomepageName").textContent = NameValue
+		document.getElementById("Name").textContent = NameValue
 	}
-	document.getElementById("HomepageName").textContent = localStorage.getItem("Name")
-	document.getElementById("Name").textContent = localStorage.getItem("Name")
 }
 
 //Colour Changing
