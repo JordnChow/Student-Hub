@@ -24,11 +24,11 @@ function NameChange() {
 
 function IconChange() {
 	const IconValue = document.getElementById("iconURL").value
-	if (NameValue == "") {
+	if (IconValue == "") {
 		document.getElementById("IconAlert").textContent = "Please Enter a New Icon"
 	} else {
 		localStorage.setItem("Icon", IconValue)
-		document.getElementById("MainProPic").src = NameValue
+		document.getElementById("MainProPic").src = IconValue
 		CloseOverlay()
 	}
 }
