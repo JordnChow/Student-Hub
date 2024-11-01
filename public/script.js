@@ -18,6 +18,7 @@ function NameChange() {
 		localStorage.setItem("Name", NameValue)
 		document.getElementById("HomepageName").textContent = NameValue
 		document.getElementById("Name").textContent = NameValue
+		CloseOverlay()
 	}
 }
 
