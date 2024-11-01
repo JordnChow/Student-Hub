@@ -1,9 +1,13 @@
-function on() {
-	document.getElementById("overlay").style.display = "block";
+function OpenOverlay(Element) {
+  document.getElementById("overlay").style.display = "inline-block";
+  document.getElementById(Element).style.display = "inline-block"
 }
 
-function off() {
-	document.getElementById("overlay").style.display = "none";
+function CloseOverlay() {
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("PalleteBox").style.display = "none";
+  document.getElementById("ChangeIcon").style.display = "none";
+  document.getElementById("ChangeName").style.display = "none";
 }
 
 function NameChange() {
