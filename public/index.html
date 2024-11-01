@@ -13,7 +13,7 @@
 <body onload="LoadHomepageSubjects()">
 	<div class="standardscrollbar changescrollbar">
 		<div id="overlay" class="overlay">
-			<div id="palletebox" class="standardlight changelight overlaybox">
+			<div id="PalleteBox" class="standardlight changelight overlaybox">
 				<div class="overlayboxcontainer">
 					<div onClick="off()"><i class="fa fa-close" style="font-size: 32px; float: left"></i></div><br><br>
 					<h2><abbr title="Palletes Created By the StudentHub Team">Standard Palletes</abbr></h2><br><br>
@@ -26,6 +26,22 @@
 					<div class="hover-box" onClick="SetColour('lowcontrast')"><img src="Images/Palletes/CPlowcontrast.png" width="200"></div>
 					<br><br><h2><abbr title="Palletes Unlocked by Having an average of 90% or Higher in a Subject">Unlockable Palletes</abbr></h2><br><br>
 					<div class="hover-box" onClick="UnlockColour('Sacraments')"><img src="Images/Palletes/CPsacraments.png" width="200" id="Sacraments"></div>
+				</div>
+			</div>
+			<div id="ChangeIcon" class="standardlight changelight overlayflexible">
+				<div class="overlayboxcontainer">
+					<div onClick="CloseOverlay()"><i class="fa fa-close" style="font-size: 32px; float: left"></i></div><br><br>
+					<h2>Change Profile Icon</h2><br><br>
+					<input type="text" id="iconURL" placeholder="Insert Image Address Here"><br>
+					<button class="standardcontrast changecontrast OverlayButton" id="ChangeIconButton">Change Icon</button>
+				</div>
+			</div>
+			<div id="ChangeName" class="standardlight changelight overlayflexible">
+				<div class="overlayboxcontainer">
+					<div onClick="CloseOverlay()"><i class="fa fa-close" style="font-size: 32px; float: left"></i></div><br><br>
+					<h2>Change Profile Icon</h2><br><br>
+					<input type="text" id="NewName" placeholder="Insert New Name Here"><br>
+					<button class="standardcontrast changecontrast OverlayButton" id="ChangeNameButton">Change Icon</button>
 				</div>
 			</div>
 		</div>
