@@ -403,8 +403,9 @@ input {
 /*Overlay*/
 .overlay {
 	position: fixed; /* Sit on top of the page content */
-	display: none; /* Hidden by default */
 	text-align: center;
+	align-items: center;
+	vertical-align: middle;
 	width: 100%; /* Full width (cover the whole page) */
 	height: 100%; /* Full height (cover the whole page) */
 	top: 0;
@@ -427,14 +428,29 @@ input {
 
 .overlayflexible {
 	border-radius: 32px;
-	padding: 16px;
-	margin: 32px;
 	display: inline-block;
+	padding: 16px;
+	margin: 16% 32px 32px 32px;
+	vertical-align: middle;
+	align-self: center;
 }
 
 .overlayboxcontainer {
 	overflow-x: hidden;
 	overflow-y: scroll;
+}
+
+.OverlayButton {
+    padding: 16px;
+    display: inline-block;
+    padding: 16px 32px;
+    margin: 16px;
+    border-radius: 32px;
+    font-family: Comfortaa;
+}
+
+.OverlayButton:hover {
+    box-shadow: 2px 2px grey
 }
 /*Navbar*/
 
