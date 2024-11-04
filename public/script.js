@@ -70,7 +70,7 @@ function ChangeColour() {
 		x++
 	}
 	document.getElementById("MainProPic").src = localStorage.getItem("Icon")
-	var palletebox = document.getElementById("palletebox")
+	var palletebox = document.getElementById("PalleteBox")
 	if (palletebox) {
 		var background = getComputedStyle(palletebox).backgroundColor
 		document.body.style.backgroundColor = background
