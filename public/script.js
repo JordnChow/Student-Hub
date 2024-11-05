@@ -257,16 +257,20 @@ function SelectAutomate(n, array) {
 function LoadTasks() {
 	var SubjectCatagories = (Catagories["SubjectCatagories"] + 1)
 	var x = 1
-	var MainParent = document.getElementById("MainParent")
+	var PageParent = document.getElementById("MainParent")
 	while (x != SubjectCatagories) {
 		var title = document.createElement("t")
 		title.className = "homepagesubtext standardtext changetext"
 		title.textContent = Catagories[x]["Title"]
-		MainParent.appendChild(title)
+		PageParent.appendChild(title)
 		var Linebreak1 = document.createElement("br")
-		MainParent.appendChild(Linebreak1)
+		PageParent.appendChild(Linebreak1)
 		var Linebreak2 = document.createElement("br")
-		MainParent.appendChild(Linebreak2)
+		PageParent.appendChild(Linebreak2)
+		var CreateSubjectParent = document.createElement("div")
+		CreateSubjectParent.id = Catagories[x]["Title"]
+		PageParent.appendChild(CreateSubjectParent)
+		var SubjectParent = document.getElementById(Catagories[x]["Title"])
 		var Subjects = (Catagories[x]["Amount"] + 1)
 		var y = 1
 		while (y != Subjects) {
@@ -283,7 +287,7 @@ function LoadTasks() {
 				Div.setAttribute("onclick", "FreeUnavaliable()")
 				Div.className = "subjectsquare standarddark changedark"
 			}
-			MainParent.appendChild(Div)
+			SubjectParent.appendChild(Div)
 			var Parent = document.getElementById(Catagories[x]["Subjects"][y - 1])
 
 			var Image = document.createElement("img")
