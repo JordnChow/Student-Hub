@@ -813,8 +813,8 @@ const Catagories = {
 	},
 	2: {
 		"Title": "Science",
-		"Amount": 1,
-		"Subjects": ["Chemistry"]
+		"Amount": 2,
+		"Subjects": ["Chemistry", "Genetics"]
 	},
 	3: {
 		"Title": "Religion",
@@ -909,6 +909,12 @@ const Chemistry = {
 			"TaskText": "A compound is a chemical fusion of two or more elements. This is commonly between a non-metal and another element. When done this way there are certain materials that come first. If there is a metal then the metal comes first, if there is no metal then go by atomic number, the lower the number first. When calculating the amount of an element in word equations we use the above table. We can see that with this table, CO2 has one carbon atom and 2 oxygen atoms, and so we see that the word formula is Carbon <strong>Di</strong>oxide. We also swap out the end of the second word with -ide, so NaCl would be Sodium Chlor<strong>ide</strong>, As Sodium (Na, Element 11) has a lesser atomic number than Chloride (Cl, Element 17), so Sodium goes first and we swap out the end of Chloride."
 		}
 	}
+}
+
+const Genetics = {
+	"Name": "Genetics",
+	"Image": "Images/DNA.png",
+	"Functions": "false",
 }
 
 const Sacraments = {
