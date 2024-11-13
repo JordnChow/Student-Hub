@@ -505,3 +505,68 @@
 .Sacramentsscrollbar ::-webkit-scrollbar-thumb:hover {
   background: #FF7FAE;
 }
+
+/* Name Pallates */
+/*Nathan*/
+.Nathantext {
+	color: #13c5cf; /*Dark*/
+}
+
+.Nathancontrast {
+	background-color: #13c5cf;	/*Contrast*/
+}
+
+.Nathanhover:hover {
+	background-color: #13c5cf;	/*Contrast*/
+}
+
+.Nathandark {
+	background-color: #13c5cf; /*Dark*/
+}
+
+.Nathanmain {
+	background-color: #13c5cf; /*Main*/
+}
+
+.Nathanlight {
+	background-color: #13c5cf; /*Light*/
+}
+
+.Nathannav {
+	background-color: #13c5cf; /*Main*/
+}
+
+.Nathannav a {
+	background-color: #13c5cf; /*Light*/
+}
+
+.Nathannav a:hover {
+	background-color: #13c5cf; /*Contrast*/
+}
+
+.Nathannav #active {
+	background-color: #13c5cf; /*Dark*/
+}
+
+.Nathannav button {
+	background-color: #13c5cf; /*Main*/
+}
+
+.Nathanscrollbar ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.Nathanscrollbar ::-webkit-scrollbar-track {
+	background: #13c5cf; /*Light*/
+	border-radius: 32px
+}
+ 
+.Nathanscrollbar ::-webkit-scrollbar-thumb {
+	background: #13c5cf; /*Dark*/
+	border-radius: 32px
+}
+
+.Nathanscrollbar ::-webkit-scrollbar-thumb:hover {
+  background: #13c5cf; /*Contrast*/
+}
+
