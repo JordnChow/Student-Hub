@@ -11,6 +11,7 @@ function CloseOverlay() {
 }
 
 function NameChange() {
+	const NamePal = ["Nathan"]
 	const NameValue = document.getElementById("NewName").value
 	if (NameValue == "") {
 		document.getElementById("NameAlert").textContent = "Please Enter a New Name"
@@ -18,6 +19,13 @@ function NameChange() {
 		localStorage.setItem("Name", NameValue)
 		document.getElementById("HomepageName").textContent = NameValue
 		document.getElementById("Name").textContent = NameValue
+		let z = 0
+		while (z != NamePal.length) {
+			if (NameValue == NamePal[z]) {
+				SetColour(NamePal[z])
+			}
+			z++
+		}
 		CloseOverlay()
 	}
 }
