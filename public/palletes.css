@@ -506,18 +506,17 @@
   background: #FF7FAE;
 }
 
-/* Name Pallates */
 /*Nathan*/
 .Nathantext {
 	color: #13c5cf; /*Dark*/
 }
 
 .Nathancontrast {
-	background-color: #13c5cf;	/*Contrast*/
+	background-color: #ffffff;	/*Contrast*/
 }
 
 .Nathanhover:hover {
-	background-color: #13c5cf;	/*Contrast*/
+	background-color: #ffffff;	/*Contrast*/
 }
 
 .Nathandark {
@@ -525,23 +524,23 @@
 }
 
 .Nathanmain {
-	background-color: #13c5cf; /*Main*/
+	background-color: #000000; /*Main*/
 }
 
 .Nathanlight {
-	background-color: #13c5cf; /*Light*/
+	background-color: #00E1FF; /*Light*/
 }
 
 .Nathannav {
-	background-color: #13c5cf; /*Main*/
+	background-color: #000000; /*Main*/
 }
 
 .Nathannav a {
-	background-color: #13c5cf; /*Light*/
+	background-color: #00E1FF; /*Light*/
 }
 
 .Nathannav a:hover {
-	background-color: #13c5cf; /*Contrast*/
+	background-color: #ffffff; /*Contrast*/
 }
 
 .Nathannav #active {
@@ -549,7 +548,7 @@
 }
 
 .Nathannav button {
-	background-color: #13c5cf; /*Main*/
+	background-color: #000000; /*Main*/
 }
 
 .Nathanscrollbar ::-webkit-scrollbar {
@@ -557,7 +556,7 @@
 }
 
 .Nathanscrollbar ::-webkit-scrollbar-track {
-	background: #13c5cf; /*Light*/
+	background: #00E1FF; /*Light*/
 	border-radius: 32px
 }
  
@@ -567,6 +566,6 @@
 }
 
 .Nathanscrollbar ::-webkit-scrollbar-thumb:hover {
-  background: #13c5cf; /*Contrast*/
+  background: #ffffff; /*Contrast*/
 }
 
